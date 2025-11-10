@@ -1,4 +1,4 @@
-import { Manrope, Pacifico, Satisfy } from "next/font/google";
+import { Manrope, Pacifico, Satisfy, Montserrat } from "next/font/google";
 
 export const manrope = Manrope({
   subsets: ["latin"],
@@ -13,4 +13,9 @@ export const pacifico = Pacifico({
 export const satisfy = Satisfy({
   subsets: ["latin"],
   weight: ["400"],
+});
+
+export const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "600", "800"],
 });
