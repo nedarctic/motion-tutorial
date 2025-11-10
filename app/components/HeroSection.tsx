@@ -104,47 +104,50 @@ export default function HeroSection() {
             ref={heroRef}
             className="relative h-screen overflow-hidden bg-black text-white flex flex-col items-center justify-center"
         >
-            {/* Background */}
+            {/* Background + Foreground + UI grouped for fade-out */}
             <AnimatePresence mode="wait">
                 {!finished && (
-                    <BackgroundImage key={images[bgIndex].src} image={images[bgIndex]} />
+                    <motion.div
+                        key="hero-animated-group"
+                        initial={{ opacity: 1 }}
+                        exit={{ opacity: 0, transition: { duration: 1.2, ease: "easeOut" } }}
+                        className="absolute inset-0 flex flex-col items-center justify-center"
+                    >
+                        {/* Background */}
+                        <BackgroundImage key={images[bgIndex].src} image={images[bgIndex]} />
+
+                        {/* Foreground Carousel */}
+                        <div className="absolute left-1/2 bottom-40 flex justify-center">
+                            <ForegroundCarousel images={images} currentIndex={carouselIndex} />
+                        </div>
+
+                        {/* Forward button */}
+                        <button
+                            onClick={nextImage}
+                            disabled={finished || bgIndex >= images.length - 1}
+                            className="absolute top-3/5 left-12 w-20 h-20 md:w-16 md:h-16 rounded-full bg-transparent text-white flex items-center justify-center shadow-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
+                        >
+                            <TfiArrowCircleRight className="text-xl md:text-2xl" size={50} />
+                        </button>
+
+                        {/* Image counter */}
+                        <div className="absolute right-20 bottom-25 flex flex-col items-center gap-4 z-30">
+                            <div className={`${manrope.className} text-white flex items-baseline gap-2`}>
+                                <span className="text-2xl md:text-4xl font-extrabold leading-none">
+                                    {String(bgIndex + 1).padStart(2, "0")}
+                                </span>
+                                <span className="text-lg md:text-xl opacity-90">/</span>
+                                <span className="text-base md:text-lg opacity-80">
+                                    {String(images.length).padStart(2, "0")}
+                                </span>
+                            </div>
+                        </div>
+                    </motion.div>
                 )}
             </AnimatePresence>
 
-            {/* Foreground Carousel */}
-            {!finished && (
-                <div className="absolute left-1/2 bottom-40 flex justify-center">
-                    <ForegroundCarousel images={images} currentIndex={carouselIndex} />
-                </div>
-            )}
 
-            {/* Forward button */}
-            {!finished && (
-                < button
-                    onClick={nextImage}
-                    disabled={finished || bgIndex >= images.length - 1}
-                    className="absolute top-3/5 left-12 w-20 h-20 md:w-16 md:h-16 rounded-full bg-transparent text-white flex items-center justify-center shadow-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                >
-                    <TfiArrowCircleRight className="text-xl md:text-2xl" size={50} />
-                </button>)
-            }
-
-            {/* Image counter */}
-            {!finished && (
-                <div className="absolute right-20 bottom-25 flex flex-col items-center gap-4 z-30">
-                    <div className={`${manrope.className} text-white flex items-baseline gap-2`}>
-                        <span className="text-2xl md:text-4xl font-extrabold leading-none">
-                            {String(bgIndex + 1).padStart(2, "0")}
-                        </span>
-                        <span className="text-lg md:text-xl opacity-90">/</span>
-                        <span className="text-base md:text-lg opacity-80">
-                            {String(images.length).padStart(2, "0")}
-                        </span>
-                    </div>
-                </div>
-            )}
-
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
                 {showFinalText && (
                     <motion.div
                         className={`${manrope.className} absolute inset-0 flex flex-col items-center justify-center text-6xl font-bold gap-16`}
@@ -160,7 +163,7 @@ export default function HeroSection() {
                         initial="hidden"
                         animate="show"
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1.5 }}
+                        transition={{ duration: 2 }}
                     >
                         {/* Hero-style branding */}
                         <motion.h1
@@ -190,7 +193,7 @@ export default function HeroSection() {
                         >
                             Begin Your Journey
                         </motion.h1>
-                        
+
                     </motion.div>
                 )}
             </AnimatePresence>
