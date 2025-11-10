@@ -194,8 +194,13 @@ export default function HeroSection() {
                         </motion.div>
 
                         {/* Supporting text */}
+                        <motion.h1
+                            className="text-5xl md:text-7xl font-extrabold text-center"
+                            variants={item}
+                        >
+                            Begin Your Journey
+                        </motion.h1>
                         
-                        Begin Your Journey
                     </motion.div>
                 )}
             </AnimatePresence>

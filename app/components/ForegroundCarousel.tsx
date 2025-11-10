@@ -16,7 +16,7 @@ export default function ForegroundCarousel({ images, currentIndex }: {images: Im
             initial={{ x: 150, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -150, opacity: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 3 }}
           />
         ))}
       </AnimatePresence>
