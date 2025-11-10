@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { Image } from "./HeroSection";
+import type { Image } from "../data/types";
 
 export default function ForegroundCarousel({ images, currentIndex }: {images: Image[]; currentIndex: number}) {
   const visibleImages = images.slice(currentIndex).concat(images.slice(0, currentIndex));
@@ -16,7 +16,7 @@ export default function ForegroundCarousel({ images, currentIndex }: {images: Im
             initial={{ x: 150, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -150, opacity: 0 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 2 }}
           />
         ))}
       </AnimatePresence>

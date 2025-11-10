@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Image } from "./HeroSection";
+import type { Image } from "../data/types";
 import { manrope, pacifico, satisfy } from "../fonts";
 
 export default function BackgroundImage({ image }: { image: Image }) {
