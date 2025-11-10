@@ -4,7 +4,7 @@ import { manrope } from "./fonts";
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <main className="relative flex flex-col min-h-screen">
       <Header />
       <HeroSection />
       <section

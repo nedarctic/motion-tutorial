@@ -14,16 +14,18 @@ export default function ForegroundCarousel({
   const total = images.length;
   const width = 256 + 16; // width + gap
 
-  // duplicate images for trailing illusion
+  // duplicate for trailing illusion
   const visibleImages = [...images, ...images];
 
+  // ✅ Set correct initial position on mount
   useEffect(() => {
-    // if currentIndex goes beyond visible first batch, we'll reset after anim finishes
+    controls.set({ x: -(currentIndex * width) });
+  }, []); // run once
+
+  useEffect(() => {
     const atLoopBoundary = currentIndex === total;
 
-    // if we just reached the duplicate boundary, animate last slide first
     if (atLoopBoundary) {
-      // animate last slide normally (i.e., to the duplicated image)
       const targetX = -(currentIndex * width);
       controls
         .start({
@@ -31,11 +33,9 @@ export default function ForegroundCarousel({
           transition: { type: "tween", duration: 0.8, ease: "easeInOut" },
         })
         .then(() => {
-          // after it finishes, snap back silently to x=0
           controls.set({ x: 0 });
         });
     } else {
-      // normal step slide
       const targetX = -(currentIndex * width);
       controls.start({
         x: targetX,
@@ -46,7 +46,11 @@ export default function ForegroundCarousel({
 
   return (
     <div className="overflow-hidden w-3/4">
-      <motion.div className="flex gap-4" animate={controls}>
+      <motion.div
+        className="flex gap-4"
+        animate={controls}
+        initial={false} // ✅ Prevent Framer from applying its default "from 0" animation
+      >
         {visibleImages.map((img, i) => (
           <div
             key={`${img.src}-${i}`}
