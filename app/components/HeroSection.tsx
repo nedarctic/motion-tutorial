@@ -8,6 +8,7 @@ import { manrope } from "../fonts";
 import { TfiArrowCircleRight } from "react-icons/tfi";
 import Image from "next/image";
 import { images } from "../data/lib";
+import { satisfy } from "../fonts";
 
 
 export default function HeroSection() {
@@ -163,7 +164,7 @@ export default function HeroSection() {
                     >
                         {/* Hero-style branding */}
                         <motion.h1
-                            className="text-5xl md:text-7xl font-extrabold text-center"
+                            className={`${satisfy.className} text-5xl md:text-7xl font-extrabold text-center`}
                             variants={item}
                         >
                             Curated by Ray
@@ -184,7 +185,7 @@ export default function HeroSection() {
 
                         {/* Supporting text */}
                         <motion.h1
-                            className="text-5xl md:text-7xl font-extrabold text-center"
+                            className={`${satisfy.className} text-xl md:text-2xl font-extrabold text-center`}
                             variants={item}
                         >
                             Begin Your Journey

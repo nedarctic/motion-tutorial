@@ -24,7 +24,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
             letterSpacing: "-0.03em",
           }}
         >
-          VOYAGE
+          CURATED
         </div>
 
         {/* Foreground Text */}
