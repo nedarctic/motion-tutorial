@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const menuItems = ["Home", "About", "Safaris", "Book a Trip"];
+  const menuItems = [{ name: "Home", path: "/" }, { name: "About", path: "/about" }, { name: "Safaris", path: "/safaris" }, { name: "Book a Trip", path: "/book-a-trip" }];
 
   const menuVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <header className={`${montserrat.className} sticky top-0 z-50 bg-black/65 backdrop-blur-md border-b border-white/10`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        
+
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -37,8 +37,8 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8">
           {menuItems.map((item, i) => (
             <motion.a
-              key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              key={i}
+              href={`${item.path.toLowerCase().replace(" ", "-")}`}
               custom={i}
               variants={menuVariants}
               initial="hidden"
@@ -46,7 +46,7 @@ export default function Header() {
               whileHover={{ color: "#fbbf24", transition: { duration: 0.2 } }}
               className="text-white text-sm font-medium hover:text-amber-400 transition-colors"
             >
-              {item}
+              {item.name}
             </motion.a>
           ))}
         </nav>
@@ -97,15 +97,15 @@ export default function Header() {
         className="md:hidden overflow-hidden bg-black/80 border-t border-white/10"
       >
         <nav className="px-4 py-4 flex flex-col gap-4">
-          {menuItems.map((item) => (
+          {menuItems.map((item, i) => (
             <motion.a
-              key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              key={i}
+              href={`#${item.path.toLowerCase().replace(" ", "-")}`}
               onClick={() => setIsOpen(false)}
               whileHover={{ x: 4 }}
               className="text-white text-sm font-medium hover:text-amber-400"
             >
-              {item}
+              {item.name}
             </motion.a>
           ))}
           <div className="pt-4 border-t border-white/10">
