@@ -31,3 +31,10 @@ export type ClientLogo = {
     name: string;
     src: string;
 }
+
+export type Testimonial = {
+    name: string;
+    text: string;
+    location: string;
+    image: string;
+}
