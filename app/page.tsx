@@ -3,6 +3,7 @@ import { DestionationsCards } from "./components/DestinationsCards";
 import TravelInspirationSection from "./components/TravelInspirationSection";
 import WhyChooseUsSection from "./components/WhyChooseUsSection";
 import ClientsSlider from "./components/ClientSlider";
+import TestimonialsSection from "./components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
       <DestionationsCards />  
       <TravelInspirationSection />  
       <WhyChooseUsSection />  
-      <ClientsSlider />   
+      <ClientsSlider />  
+      <TestimonialsSection /> 
     </main>
   );
 }
