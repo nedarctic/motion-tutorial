@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const menuItems = [{ name: "Home", path: "/" }, { name: "About", path: "/about" }, { name: "Safaris", path: "/safaris" }, { name: "Book a Trip", path: "/book-a-trip" }];
+  const menuItems = [{ name: "Home", path: "/" }, { name: "About", path: "/about" }, { name: "Safaris", path: "/safaris" }, { name: "Book a Trip", path: "/book" }];
 
   const menuVariants = {
     hidden: { opacity: 0, y: -10 },
