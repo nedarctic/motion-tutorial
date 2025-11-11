@@ -5,21 +5,23 @@ import { montserrat, manrope, satisfy } from "../fonts";
 import { Star } from "lucide-react";
 import { safaris } from "../data/lib";
 import Link from "next/link";
+import { useSearch } from "../context/SearchContext";
 
 const ITEMS_PER_PAGE = 8;
 
 export default function SafarisExplorePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const { query, setQuery } = useSearch();
 
   // Filter safaris based on search query
   const filteredSafaris = useMemo(() => {
     return safaris.filter(
       (safari) =>
-        safari.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        safari.location.toLowerCase().includes(searchQuery.toLowerCase())
+        safari.title.toLowerCase().includes(query.toLowerCase()) ||
+        safari.location.toLowerCase().includes(query.toLowerCase())
     );
-  }, [searchQuery]);
+  }, [query]);
 
   const totalPages = Math.ceil(filteredSafaris.length / ITEMS_PER_PAGE);
   const currentItems = filteredSafaris.slice(
@@ -46,10 +48,10 @@ export default function SafarisExplorePage() {
           <input
             type="text"
             placeholder="Search for a safari or location..."
-            value={searchQuery}
+            value={query}
             onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setCurrentPage(1); // reset to first page
+              setQuery(e.target.value);
+              setCurrentPage(1);
             }}
             className="w-full text-center text-lg md:text-xl px-6 py-4 rounded-full border border-yellow-400 bg-black/10 dark:bg-white/10 text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 shadow-lg focus:ring-2 focus:ring-yellow-400 transition"
           />
