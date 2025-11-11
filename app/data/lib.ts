@@ -1,4 +1,4 @@
-import type { Image, TravelVideo, Card, Safari, ClientLogo } from "./types";
+import type { Image, TravelVideo, Card, Safari, ClientLogo, Testimonial } from "./types";
 import { Star, Compass, Heart } from "lucide-react";
 
 export const images: Image[] = [
@@ -13,6 +13,27 @@ export const travelVideos: TravelVideo[] = [
   { id: 2, thumbnail: "/travel2.jpg", url: "https://youtu.be/mbqCXpmo15A?si=6ctcOhhr7FFipY5z", title: "Masai Mara | The Safari of a LIFETIME!" },
   { id: 3, thumbnail: "/travel3.jpeg", url: "https://youtu.be/tIwlsS71NKA?si=nHdBdsnVM22DH4y8", title: "Amboseli’s Giants: Tracking Elephants Beneath Kilimanjaro" },
   { id: 4, thumbnail: "/travel4.jpeg", url: "https://youtu.be/W7qvtRWeltw?si=HlJhvhrQSrLUNesV", title: "Wonders of Kenya | Most Beautiful Places to Visit in Kenya | Travel Video 4K" },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    name: "Alice M.",
+    text: "The safari experience was absolutely breathtaking! Everything was perfectly organized, and the wildlife sightings were unforgettable.",
+    location: "Nairobi, Kenya",
+    image: "/alice.jpeg",
+  },
+  {
+    name: "John K.",
+    text: "Curated by Ray made our Kenya trip seamless and magical. Every detail was taken care of, and the guides were incredibly knowledgeable.",
+    location: "London, UK",
+    image: "/john.jpeg",
+  },
+  {
+    name: "Sophia R.",
+    text: "I can’t recommend them enough! The safaris were immersive, the accommodations luxurious, and the overall experience beyond expectations.",
+    location: "New York, USA",
+    image: "/sophia.jpeg",
+  },
 ];
 
 export const clientLogos: ClientLogo[] = [
