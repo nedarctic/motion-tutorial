@@ -29,7 +29,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
 
         {/* Foreground Text */}
         <motion.h1
-          className={`${satisfy.className} relative pl-12 text-5xl md:text-6xl font-semibold text-start max-w-xl z-10`}
+          className={`${satisfy.className} relative pl-12 text-5xl md:text-6xl text-[#DCCAB2] font-semibold text-start max-w-xl z-10`}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -40 }}

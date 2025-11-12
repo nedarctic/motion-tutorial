@@ -21,7 +21,7 @@ export default function TravelInspirationSection() {
           className="object-cover brightness-[0.45]"
           priority
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-black/70" />
       </div>
 
       {/* Foreground Content */}
@@ -34,12 +34,12 @@ export default function TravelInspirationSection() {
           className="space-y-6"
         >
           <h1
-            className={`${manrope.className} text-4xl md:text-6xl font-extrabold text-cyan-200 leading-tight`}
+            className={`${manrope.className} text-4xl md:text-6xl font-extrabold text-[#DCCAB2] leading-tight`}
           >
             DISCOVER THE WORLD IN A NEW WAY
           </h1>
 
-          <p className={`${manrope.className} text-gray-200 max-w-md leading-relaxed`}>
+          <p className={`${manrope.className} text-[#DCCAB2] max-w-md leading-relaxed`}>
             Watch stories from across Kenya, from misty mountains to golden savannas.
             Every journey awakens a sense of wonder, connection, and belonging.
           </p>
@@ -49,7 +49,7 @@ export default function TravelInspirationSection() {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 text-white border border-white/40 px-5 py-3 rounded-full hover:bg-white/10 transition-all"
+            className="inline-flex items-center gap-2 text-[#DCCAB2] border border-white/40 px-5 py-3 rounded-full hover:bg-white/10 transition-all"
           >
             <svg
               className="w-5 h-5 fill-white"

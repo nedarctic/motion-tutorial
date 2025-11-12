@@ -34,7 +34,7 @@ export default function BookTripPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-4xl md:text-5xl font-extrabold text-yellow-400 mb-6`}
+          className={`${montserrat.className} text-4xl md:text-5xl font-extrabold text-[#DCCAB2] mb-6`}
         >
           Book Your {safari.title} Experience
         </motion.h1>
@@ -62,7 +62,7 @@ export default function BookTripPage() {
               <input
                 type="text"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-yellow-400"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="Your name"
               />
             </div>
@@ -72,7 +72,7 @@ export default function BookTripPage() {
               <input
                 type="email"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-yellow-400"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="you@example.com"
               />
             </div>
@@ -82,7 +82,7 @@ export default function BookTripPage() {
               <input
                 type="tel"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-yellow-400"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="+254 700 000 000"
               />
             </div>
@@ -92,7 +92,7 @@ export default function BookTripPage() {
               <input
                 type="date"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white border border-white/20 focus:outline-none focus:border-yellow-400"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default function BookTripPage() {
               <label className="block text-sm text-gray-300 mb-2">Special Requests</label>
               <textarea
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-yellow-400 resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2] resize-none"
                 placeholder="Let us know your preferences..."
               ></textarea>
             </div>
@@ -109,7 +109,7 @@ export default function BookTripPage() {
           <div className="mt-10 flex justify-center">
             <button
               type="submit"
-              className="bg-yellow-400 text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all"
+              className="bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#DCCAB2] transition-all"
             >
               Submit Booking Request
             </button>

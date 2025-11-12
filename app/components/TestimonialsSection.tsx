@@ -8,11 +8,11 @@ import Image from "next/image";
 export default function TestimonialsSection() {
   return (
     <section className="relative w-full py-28 overflow-hidden bg-linear-to-b from-black via-zinc-900 to-black">
-      {/* Soft ambient backdrop */}
+      {/* Soft ambient backdrop
       <div
         className="absolute inset-0 opacity-40 bg-[url('/kenya9.jpeg')] bg-cover bg-center blur-2xl"
         style={{ maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)" }}
-      />
+      /> */}
 
       {/* Golden glow accent */}
       <div className="absolute inset-0 bg-gradient-radial from-yellow-500/10 via-transparent to-transparent blur-3xl" />
@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className={`relative z-10 text-3xl md:text-4xl font-bold text-center mb-16 ${montserrat.className} text-yellow-400`}
+        className={`relative z-10 text-3xl md:text-4xl font-bold text-center mb-16 ${montserrat.className} text-[#DCCAB2]`}
       >
         What Our Clients Say
       </motion.h2>
@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: idx * 0.2 }}
-            className="bg-linear-to-b from-zinc-800/60 to-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-lg p-8 flex flex-col justify-between hover:border-yellow-400/40 transition-all duration-500"
+            className="bg-linear-to-b from-zinc-800/60 to-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-lg p-8 flex flex-col justify-between hover:border-[#d4ba98] transition-all duration-500"
           >
             <div className="flex items-center gap-4 mb-6">
               <Image
@@ -43,20 +43,20 @@ export default function TestimonialsSection() {
                 alt={t.name}
                 height={64}
                 width={64}
-                className="w-16 h-16 rounded-full object-cover border-2 border-yellow-400 shadow-md"
+                className="w-16 h-16 rounded-full object-cover border-2 border-[#DCCAB2] shadow-md"
               />
               <div>
                 <h3
-                  className={`text-yellow-400 font-semibold text-lg ${montserrat.className}`}
+                  className={`text-[#DCCAB2] font-semibold text-lg ${montserrat.className}`}
                 >
                   {t.name}
                 </h3>
-                <p className="text-gray-400 text-sm">{t.location}</p>
+                <p className="text-[#DCCAB2] text-sm">{t.location}</p>
               </div>
             </div>
 
             <p
-              className={`text-lg text-gray-200 ${manrope.className} leading-relaxed italic`}
+              className={`text-lg text-[#DCCAB2] ${manrope.className} leading-relaxed italic`}
             >
               “{t.text}”
             </p>

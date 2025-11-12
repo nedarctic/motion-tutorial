@@ -125,7 +125,7 @@ export default function HeroSection() {
                         <button
                             onClick={nextImage}
                             disabled={finished || bgIndex >= images.length - 1}
-                            className="absolute top-3/5 left-12 w-20 h-20 md:w-16 md:h-16 rounded-full bg-transparent text-white flex items-center justify-center shadow-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
+                            className="absolute top-3/5 left-12 w-20 h-20 md:w-16 md:h-16 rounded-full bg-transparent text-[#DCCAB2] flex items-center justify-center shadow-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
                         >
                             <TfiArrowCircleRight className="text-xl md:text-2xl" size={50} />
                         </button>
@@ -133,11 +133,11 @@ export default function HeroSection() {
                         {/* Image counter */}
                         <div className="absolute right-20 bottom-25 flex flex-col items-center gap-4 z-30">
                             <div className={`${manrope.className} text-white flex items-baseline gap-2`}>
-                                <span className="text-2xl md:text-4xl font-extrabold leading-none">
+                                <span className="text-2xl text-[#DCCAB2] md:text-4xl font-extrabold leading-none">
                                     {String(bgIndex + 1).padStart(2, "0")}
                                 </span>
-                                <span className="text-lg md:text-xl opacity-90">/</span>
-                                <span className="text-base md:text-lg opacity-80">
+                                <span className="text-lg text-[#DCCAB2] md:text-xl opacity-90">/</span>
+                                <span className="text-base text-[#DCCAB2] md:text-lg opacity-80">
                                     {String(images.length).padStart(2, "0")}
                                 </span>
                             </div>
@@ -167,7 +167,7 @@ export default function HeroSection() {
                     >
                         {/* Hero-style branding */}
                         <motion.h1
-                            className={`${satisfy.className} text-5xl md:text-7xl font-extrabold text-center`}
+                            className={`${satisfy.className} text-[#DCCAB2] text-5xl md:text-7xl font-extrabold text-center`}
                             variants={item}
                         >
                             Curated by Ray
@@ -179,16 +179,16 @@ export default function HeroSection() {
                             variants={item}
                         >
                             <Image
-                                src="/light-logo.svg"
+                                src="/Pale Beige Logo.svg"
                                 alt="Curated by Ray logo"
-                                width={300}   // blown-out width
-                                height={300}  // blown-out height
+                                width={300} 
+                                height={300}
                             />
                         </motion.div>
 
                         {/* Supporting text */}
                         <motion.h1
-                            className={`${satisfy.className} text-xl md:text-2xl font-extrabold text-center`}
+                            className={`${satisfy.className} text-[#DCCAB2] text-xl md:text-2xl font-extrabold text-center`}
                             variants={item}
                         >
                             Begin Your Journey

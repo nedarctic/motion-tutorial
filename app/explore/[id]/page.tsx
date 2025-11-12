@@ -46,7 +46,7 @@ export default function SafariDetailPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-5xl sm:text-6xl font-extrabold text-yellow-400 mb-4`}
+          className={`${montserrat.className} text-5xl sm:text-6xl font-extrabold text-[#DCCAB2] mb-4`}
         >
           {safari.title}
         </motion.h1>
@@ -58,7 +58,7 @@ export default function SafariDetailPage() {
           className="flex items-center gap-6 mb-8"
         >
           <p className={`${montserrat.className} text-lg opacity-80`}>{safari.location}</p>
-          <div className="flex items-center gap-1 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full text-yellow-400 font-semibold">
+          <div className="flex items-center gap-1 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full text-[#DCCAB2] font-semibold">
             ⭐ {safari.rating.toFixed(1)}
           </div>
         </motion.div>
@@ -79,7 +79,7 @@ export default function SafariDetailPage() {
         >
           <Link
             href={`/book/${safari.id}`}
-            className="bg-yellow-400 text-black font-semibold px-8 py-4 rounded-full text-lg md:text-xl shadow-lg hover:bg-yellow-300 transition"
+            className="bg-[#DCCAB2] text-black font-semibold px-8 py-4 rounded-full text-lg md:text-xl shadow-lg hover:bg-[#DCCAB2] transition"
           >
             Book This Trip
           </Link>

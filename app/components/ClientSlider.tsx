@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { montserrat } from "../fonts";
 
 import { clientLogos } from "../data/lib";
 
 export default function ClientsSlider() {
   return (
-    <section className="relative w-full overflow-hidden py-20 bg-zinc-50 dark:bg-black">
-      <h2 className="text-center text-3xl md:text-4xl font-bold text-black dark:text-white mb-12">
+    <section className="relative w-full overflow-hidden py-20 bg-black/70">
+      <h2 className={`relative z-10 text-3xl md:text-4xl font-bold text-center mb-32 ${montserrat.className} text-[#DCCAB2]`}>
         Our Trusted Partners
       </h2>
 

@@ -37,7 +37,7 @@ export default function SafarisExplorePage() {
       {/* Page Intro & Search */}
       <section className="text-center mb-16 relative z-0 max-w-4xl mx-auto">
         <h1 className="text-5xl sm:text-6xl font-extrabold text-black dark:text-white">
-          Explore <span className="text-yellow-400 dark:text-yellow-300">Safaris</span>
+          Explore <span className="text-[#DCCAB2] dark:text-[#DCCAB2]">Safaris</span>
         </h1>
         <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-400 mt-4">
           Discover and plan your next unforgettable Kenyan safari adventure. Filter and explore experiences across the country.
@@ -53,7 +53,7 @@ export default function SafarisExplorePage() {
               setQuery(e.target.value);
               setCurrentPage(1);
             }}
-            className="w-full text-center text-lg md:text-xl px-6 py-4 rounded-full border border-yellow-400 bg-black/10 dark:bg-white/10 text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 shadow-lg focus:ring-2 focus:ring-yellow-400 transition"
+            className="w-full text-center text-lg md:text-xl px-6 py-4 rounded-full border border-[#DCCAB2] bg-black/10 dark:bg-white/10 text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 shadow-lg focus:ring-2 focus:ring-[#DCCAB2] transition"
           />
         </div>
       </section>
@@ -72,7 +72,7 @@ export default function SafarisExplorePage() {
 
             {/* Rating */}
             <div className="absolute top-4 right-4 flex items-center bg-black/50 backdrop-blur-md px-2 py-1 rounded-full text-white text-sm font-medium">
-              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 mr-1" />
+              <Star className="w-4 h-4 fill-[#DCCAB2] text-[#DCCAB2] mr-1" />
               <span>{safari.rating.toFixed(1)}</span>
             </div>
 
@@ -88,7 +88,7 @@ export default function SafarisExplorePage() {
               </div>
               <Link
                 href={`/explore/${safari.id}`}
-                className={`${montserrat.className} bg-yellow-400 text-black text-sm font-semibold px-4 py-1 rounded-full shadow-md hover:bg-yellow-300 transition inline-block`}
+                className={`${montserrat.className} bg-[#DCCAB2] text-black text-sm font-semibold px-4 py-1 rounded-full shadow-md hover:bg-[#DCCAB2] transition inline-block`}
               >
                 Explore
               </Link>
@@ -103,7 +103,7 @@ export default function SafarisExplorePage() {
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className="px-4 py-2 rounded-full bg-yellow-400/20 hover:bg-yellow-400/40 transition disabled:opacity-50"
+            className="px-4 py-2 rounded-full bg-[#433c32] hover:bg-[#DCCAB2] transition disabled:opacity-50"
           >
             Previous
           </button>
@@ -113,7 +113,7 @@ export default function SafarisExplorePage() {
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 rounded-full bg-yellow-400/20 hover:bg-yellow-400/40 transition disabled:opacity-50"
+            className="px-4 py-2 rounded-full bg-[#705b3f] hover:bg-[#DCCAB2] transition disabled:opacity-50"
           >
             Next
           </button>

@@ -18,16 +18,16 @@ export const DestionationsCards = () => (
         style={{ backgroundImage: `url(${destinations[0].src})` }}
       />
       {/* Strong vignette around edges */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-black/70" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-[#63581F] to-black/70" />
     </div>
 
     {/* Branding line */}
-    <p className={`${montserrat.className} text-base md:text-lg mb-4 text-center text-white`}>
+    <p className={`${montserrat.className} text-base md:text-lg mb-4 text-center text-[#DCCAB2]`}>
       Don’t know where to start? <span className="font-semibold text-white">We curated the best Kenyan travel experiences for you.</span>
     </p>
 
     {/* Section title */}
-    <h2 className={`${satisfy.className} text-4xl md:text-5xl font-bold mb-14 text-center text-white`}>
+    <h2 className={`${satisfy.className} text-4xl md:text-5xl font-bold mb-14 text-center text-[#DCCAB2]`}>
       Welcome to Your Next Adventure!
     </h2>
 
@@ -45,7 +45,7 @@ export const DestionationsCards = () => (
 
           {/* Rating */}
           <div className="absolute top-4 right-4 flex items-center bg-black/50 backdrop-blur-md px-2 py-1 rounded-full text-white text-sm font-medium">
-            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 mr-1" />
+            <Star className="w-4 h-4 fill-[#DCCAB2] text-[#DCCAB2] mr-1" />
             <span>{(4.3 + Math.random() * 0.7).toFixed(1)}</span>
           </div>
 
@@ -55,7 +55,7 @@ export const DestionationsCards = () => (
               <h3 className={`${montserrat.className} text-lg font-semibold drop-shadow-md`}>{destination.title}</h3>
               <p className={`${montserrat.className} text-sm opacity-80`}>{destination.location}</p>
             </div>
-            <Link href={`/explore/${destination.id}`} className={`${montserrat.className} bg-yellow-400 text-black text-sm font-semibold px-4 py-1 rounded-full shadow-md hover:bg-yellow-300 transition`}>
+            <Link href={`/explore/${destination.id}`} className={`${montserrat.className} bg-[#DCCAB2] text-black text-sm font-semibold px-4 py-1 rounded-full shadow-md bg-[#DCCAB2] transition`}>
               Explore
             </Link>
           </div>
@@ -65,7 +65,7 @@ export const DestionationsCards = () => (
 
     {/* Explore More Button */}
     <div className="mt-16">
-      <a href="/safaris" className={`${montserrat.className} inline-block bg-yellow-400 text-black text-sm md:text-base font-semibold px-8 py-3 rounded-full shadow-md hover:bg-yellow-300 transition`}>
+      <a href="/safaris" className={`${montserrat.className} inline-block bg-[#DCCAB2] text-black text-sm md:text-base font-semibold px-8 py-3 rounded-full shadow-md hover:bg-[#DCCAB2] transition`}>
         Explore More Safaris
       </a>
     </div>

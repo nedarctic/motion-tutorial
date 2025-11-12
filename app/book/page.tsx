@@ -22,7 +22,7 @@ export default function BookPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-4xl md:text-5xl font-extrabold text-center text-yellow-400 mb-6`}
+          className={`${montserrat.className} text-4xl md:text-5xl font-extrabold text-center text-[#DCCAB2] mb-6`}
         >
           Book a Trip
         </motion.h1>
@@ -53,13 +53,13 @@ export default function BookPage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <h3 className={`text-xl font-semibold mb-2 text-yellow-400 ${montserrat.className}`}>
+                <h3 className={`text-xl font-semibold mb-2 text-[#DCCAB2] ${montserrat.className}`}>
                   {safari.title}
                 </h3>
                 <p className={`text-sm text-gray-300 mb-4 ${manrope.className}`}>{safari.location}</p>
                 <Link
                   href={`/book/${safari.id}`}
-                  className="inline-block bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full text-sm hover:bg-yellow-300 transition"
+                  className="inline-block bg-[#DCCAB2] text-black font-semibold px-6 py-2 rounded-full text-sm hover:bg-[#785f3f] transition"
                 >
                   Book This Safari
                 </Link>
@@ -87,7 +87,7 @@ export default function BookPage() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="bg-zinc-900/70 border border-white/10 rounded-3xl shadow-2xl p-10 max-w-3xl mx-auto"
         >
-          <h2 className={`text-2xl md:text-3xl font-bold text-yellow-400 mb-6 text-center ${montserrat.className}`}>
+          <h2 className={`text-2xl md:text-3xl font-bold text-[#DCCAB2] mb-6 text-center ${montserrat.className}`}>
             Plan a Custom Safari
           </h2>
 
@@ -109,7 +109,7 @@ export default function BookPage() {
                 required
                 value={customName}
                 onChange={(e) => setCustomName(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-yellow-400"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="e.g., Serengeti Adventure"
               />
             </div>
@@ -119,7 +119,7 @@ export default function BookPage() {
               <input
                 type="text"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-yellow-400"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="Your name"
               />
             </div>
@@ -129,7 +129,7 @@ export default function BookPage() {
               <input
                 type="email"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-yellow-400"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="you@example.com"
               />
             </div>
@@ -138,7 +138,7 @@ export default function BookPage() {
               <label className="block text-sm text-gray-300 mb-2">Tell Us About Your Dream Safari</label>
               <textarea
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-yellow-400 resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2] resize-none"
                 placeholder="Describe your ideal adventure..."
               ></textarea>
             </div>
@@ -146,7 +146,7 @@ export default function BookPage() {
             <div className="md:col-span-2 flex justify-center">
               <button
                 type="submit"
-                className="bg-yellow-400 text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all"
+                className="bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#73552d] transition-all"
               >
                 Submit Request
               </button>
@@ -157,9 +157,9 @@ export default function BookPage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mt-8 p-6 bg-yellow-400/10 border border-yellow-400/30 rounded-2xl text-center"
+              className="mt-8 p-6 bg-[#DCCAB2] border border-[#DCCAB2]-400/30 rounded-2xl text-center"
             >
-              <p className={`text-yellow-300 font-medium ${manrope.className}`}>
+              <p className={`text-[#DCCAB2] font-medium ${manrope.className}`}>
                 Your request for “{customName || "Custom Safari"}” has been received!  
                 Our team will contact you soon to plan your journey.
               </p>

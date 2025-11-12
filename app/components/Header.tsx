@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { montserrat } from "../fonts";
 import { useSearch } from "../context/SearchContext";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,7 @@ export default function Header() {
 
   return (
     <header
-      className={`${montserrat.className} sticky top-0 z-50 bg-black/65 backdrop-blur-md border-b border-white/10`}
+      className={`${montserrat.className} sticky top-0 z-50 bg-[#DCCAB2] text-black backdrop-blur-md`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
@@ -38,7 +39,7 @@ export default function Header() {
           className="shrink-0"
         >
           <Image
-            src="/light-logo.svg"
+            src="/dark-logo.svg"
             alt="Curated by Ray logo"
             height={20}
             width={40}
@@ -48,20 +49,13 @@ export default function Header() {
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-8">
           {menuItems.map((item, i) => (
-            <motion.a
+            <Link
               key={i}
               href={item.path}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{
-                color: "#fbbf24",
-                transition: { duration: 0.2 },
-              }}
-              className="text-white text-sm font-medium hover:text-amber-400 transition-colors"
+              className="text-black font-semibold text-sm hover:text-[#63581F] transition-colors"
             >
               {item.name}
-            </motion.a>
+            </Link>
           ))}
         </nav>
 
@@ -71,18 +65,18 @@ export default function Header() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="hidden md:flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 border border-white/20"
+          className="hidden md:flex items-center gap-2 bg-[#DCCAB2] rounded-lg px-3 py-2 border-2 text-black"
         >
           <input
             type="text"
             placeholder="Search..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="bg-transparent text-white text-sm placeholder-white/50 outline-none w-32"
+            className="bg-transparent text-black text-sm placeholder-black/50 outline-none w-32"
           />
           <button type="submit">
             <svg
-              className="w-4 h-4 text-white/60"
+              className="w-4 h-4 text-black/60"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

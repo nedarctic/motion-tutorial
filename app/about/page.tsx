@@ -6,12 +6,9 @@ import { montserrat, manrope } from "../fonts";
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen text-white overflow-hidden">
+    <main className="relative min-h-screen text-black overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-[url('/about-hero.jpeg')] bg-cover bg-center brightness-75" />
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-
+      <section className="relative h-[85vh] w-full flex items-center justify-center  bg-linear-to-b from-[#63581F] via-black/30 to-black/70">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -19,12 +16,12 @@ export default function AboutPage() {
           className="relative z-10 text-center px-6"
         >
           <h1
-            className={`${montserrat.className} text-5xl md:text-6xl font-extrabold text-yellow-400 mb-4`}
+            className={`${montserrat.className} text-5xl md:text-6xl font-extrabold text-[#DCCAB2] mb-4`}
           >
             About Us
           </h1>
           <p
-            className={`${manrope.className} text-lg md:text-xl text-gray-300 max-w-3xl mx-auto`}
+            className={`${manrope.className} text-lg md:text-xl text-[#DCCAB2] max-w-3xl mx-auto`}
           >
             Where wanderlust meets curation. We craft experiences that stir the soul and
             awaken the spirit of discovery.
@@ -42,19 +39,19 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className={`${montserrat.className} text-3xl md:text-4xl font-bold text-yellow-400 mb-6`}
+              className={`${montserrat.className} text-3xl md:text-4xl font-bold text-[#DCCAB2] mb-6`}
             >
               Our Story
             </h2>
             <p
-              className={`${manrope.className} text-gray-300 leading-relaxed mb-6`}
+              className={`${manrope.className} text-[#DCCAB2] leading-relaxed mb-6`}
             >
-              Founded with a vision to redefine adventure, <span className="text-yellow-400 font-medium">Curated by Ray</span> was born out of
+              Founded with a vision to redefine adventure, <span className="text-[#DCCAB2] font-medium">Curated by Ray</span> was born out of
               a simple belief, that travel is not about checking places off a list, but
               about immersing yourself in moments that linger forever.
             </p>
             <p
-              className={`${manrope.className} text-gray-300 leading-relaxed mb-6`}
+              className={`${manrope.className} text-[#DCCAB2] leading-relaxed mb-6`}
             >
               From the savannas of the Maasai Mara to the turquoise waters of Zanzibar,
               every journey we design is a handcrafted experience, curated with
@@ -62,7 +59,7 @@ export default function AboutPage() {
               explore.
             </p>
             <p
-              className={`${manrope.className} text-gray-300 leading-relaxed`}
+              className={`${manrope.className} text-[#DCCAB2] leading-relaxed`}
             >
               We don’t just take you places, we help you connect with them. Because in
               every horizon, there’s a story waiting to be lived.
@@ -113,12 +110,12 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2
-              className={`${montserrat.className} text-3xl md:text-4xl font-bold text-yellow-400 mb-6`}
+              className={`${montserrat.className} text-3xl md:text-4xl font-bold text-[#DCCAB2] mb-6`}
             >
               Our Mission
             </h2>
             <p
-              className={`${manrope.className} text-gray-300 leading-relaxed mb-6`}
+              className={`${manrope.className} text-[#DCCAB2] leading-relaxed mb-6`}
             >
               To craft authentic, sustainable journeys that celebrate local culture,
               protect nature, and transform travelers. Every itinerary is carefully
@@ -126,7 +123,7 @@ export default function AboutPage() {
               participant, one who leaves a positive footprint behind.
             </p>
             <p
-              className={`${manrope.className} text-gray-300 leading-relaxed`}
+              className={`${manrope.className} text-[#DCCAB2] leading-relaxed`}
             >
               We partner with local communities, conservation initiatives, and
               eco-lodges to ensure that your adventure also supports the ecosystems and
@@ -143,7 +140,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-3xl md:text-4xl font-bold text-center text-yellow-400 mb-16`}
+          className={`${montserrat.className} text-3xl md:text-4xl font-bold text-center text-[#DCCAB2] mb-16`}
         >
           Our Values
         </motion.h2>
@@ -172,15 +169,15 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.2 }}
-              className="bg-zinc-900/70 p-8 rounded-3xl shadow-lg hover:shadow-yellow-400/10 transition"
+              className="bg-[#DCCAB2] p-8 rounded-3xl shadow-lg hover:shadow-[#836a4a] transition"
             >
               <div className="text-4xl mb-4">{value.icon}</div>
               <h3
-                className={`${montserrat.className} text-xl font-semibold text-yellow-400 mb-3`}
+                className={`${montserrat.className} text-xl font-semibold text-black mb-3`}
               >
                 {value.title}
               </h3>
-              <p className={`${manrope.className} text-gray-300 leading-relaxed`}>
+              <p className={`${manrope.className} text-black leading-relaxed`}>
                 {value.text}
               </p>
             </motion.div>
@@ -195,12 +192,12 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-4xl md:text-5xl font-bold text-yellow-400 mb-6`}
+          className={`${montserrat.className} text-4xl md:text-5xl font-bold text-[#DCCAB2] mb-6`}
         >
           Join the Journey
         </motion.h2>
         <p
-          className={`${manrope.className} text-gray-300 text-lg max-w-2xl mx-auto mb-10`}
+          className={`${manrope.className} text-[#DCCAB2] text-lg max-w-2xl mx-auto mb-10`}
         >
           Every story begins with a single step. Take yours today, and let us curate a
           journey that will stay with you forever.
@@ -208,7 +205,7 @@ export default function AboutPage() {
         <motion.a
           whileHover={{ scale: 1.05 }}
           href="/book"
-          className="bg-yellow-400 text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all"
+          className="bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#a78b66] transition-all"
         >
           Book Your Adventure
         </motion.a>
