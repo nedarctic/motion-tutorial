@@ -58,7 +58,7 @@ export default function SafariDetailPage() {
           className="flex items-center gap-6 mb-8"
         >
           <p className={`${montserrat.className} text-lg opacity-80`}>{safari.location}</p>
-          <div className="flex items-center gap-1 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full text-[#DCCAB2] font-semibold">
+          <div className="flex items-center gap-1 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full fill-[#D8BD98] text-[#D8BD98] font-semibold">
             ⭐ {safari.rating.toFixed(1)}
           </div>
         </motion.div>

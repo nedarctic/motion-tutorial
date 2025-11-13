@@ -127,6 +127,111 @@ export const safaris: Safari[] = [
   { id: "safari-31", src: "/kenya31.jpeg", title: "Aberdare Night Safari", location: "Aberdares", rating: 4.6, description: "Experience nocturnal wildlife in dense forests.", detailedDescription: "Join a night safari in the Aberdare Ranges to observe elusive nocturnal species, including leopards and bushbucks, in their natural forest habitat." },
   { id: "safari-32", src: "/kenya32.jpeg", title: "Nairobi Giraffe Centre Visit", location: "Nairobi", rating: 4.5, description: "Up-close encounters with endangered giraffes.", detailedDescription: "Visit the Giraffe Centre in Nairobi to feed and learn about endangered Rothschild’s giraffes while supporting conservation programs." },
   { id: "safari-33", src: "/kenya33.jpeg", title: "Lake Naivasha Crescent", location: "Lake Naivasha", rating: 4.7, description: "Boat rides and lakeside relaxation surrounded by wildlife.", detailedDescription: "Enjoy serene boat rides and lakeside experiences at Lake Naivasha, surrounded by wildlife including hippos, birds, and lush vegetation." },
-  { id: "safari-34", src: "/kenya34.jpeg", title: "Malindi Marine Safari", location: "Malindi", rating: 4.6, description: "Explore coral reefs, marine life, and pristine beaches.", detailedDescription: "Malindi offers pristine beaches and exceptional marine adventures. Snorkel or dive among coral reefs, encounter tropical fish, and enjoy sun-soaked shores." }
+  { id: "safari-34", src: "/kenya34.jpeg", title: "Malindi Marine Safari", location: "Malindi", rating: 4.6, description: "Explore coral reefs, marine life, and pristine beaches.", detailedDescription: "Malindi offers pristine beaches and exceptional marine adventures. Snorkel or dive among coral reefs, encounter tropical fish, and enjoy sun-soaked shores." },
+  // --- ZANZIBAR DESTINATIONS ---
+  {
+    id: "zanzibar1",
+    src: "/zanzibar1.jpeg",
+    title: "Stone Town Discovery",
+    location: "Zanzibar",
+    rating: 4.8,
+    description: "Walk through history in Zanzibar’s UNESCO World Heritage site.",
+    detailedDescription:
+      "Explore the winding alleys of Stone Town, with its centuries-old architecture, spice markets, and rich Swahili-Arab culture. Visit historic landmarks, enjoy local cuisine, and experience the island’s vibrant heritage."
+  },
+  {
+    id: "zanzibar2",
+    src: "/zanzibar2.jpeg",
+    title: "Nungwi Beach Escape",
+    location: "Zanzibar",
+    rating: 4.7,
+    description: "Relax on white sands and enjoy crystal-clear waters.",
+    detailedDescription:
+      "Nungwi Beach offers turquoise waters and a tranquil vibe perfect for relaxation. Enjoy water sports, sunset dhow cruises, and fresh seafood while surrounded by natural coastal beauty."
+  },
+  {
+    id: "zanzibar3",
+    src: "/zanzibar3.jpeg",
+    title: "Spice Farm Experience",
+    location: "Zanzibar",
+    rating: 4.6,
+    description: "Tour the island’s famous spice plantations.",
+    detailedDescription:
+      "Embark on a guided tour through Zanzibar’s spice farms, learning about cloves, vanilla, and nutmeg cultivation. Engage your senses and discover why the island is known as the Spice Island."
+  },
+  {
+    id: "zanzibar4",
+    src: "/zanzibar4.jpeg",
+    title: "Mnemba Atoll Snorkeling",
+    location: "Zanzibar",
+    rating: 4.9,
+    description: "Dive into vibrant coral reefs and marine life.",
+    detailedDescription:
+      "Snorkel or dive at Mnemba Atoll, a marine paradise with crystal-clear waters, coral gardens, and colorful fish. Perfect for marine life enthusiasts seeking a world-class underwater experience."
+  },
+
+  // --- DUBAI DESTINATIONS ---
+  {
+    id: "dubai1",
+    src: "/dubai1.jpeg",
+    title: "Desert Safari Adventure",
+    location: "Dubai",
+    rating: 4.8,
+    description: "Thrilling dunes, camel rides, and sunset dinners.",
+    detailedDescription:
+      "Experience Dubai’s golden desert with a thrilling 4x4 dune bashing ride, camel trekking, and sandboarding. End your day with a traditional Bedouin camp dinner under the stars."
+  },
+  {
+    id: "dubai2",
+    src: "/dubai2.jpeg",
+    title: "Burj Khalifa Experience",
+    location: "Dubai",
+    rating: 4.7,
+    description: "Reach the world’s tallest building and stunning views.",
+    detailedDescription:
+      "Visit the Burj Khalifa’s observation decks for panoramic city views. Explore nearby attractions like the Dubai Mall and Fountain Show for an unforgettable urban adventure."
+  },
+  {
+    id: "dubai3",
+    src: "/dubai3.jpeg",
+    title: "Palm Jumeirah Retreat",
+    location: "Dubai",
+    rating: 4.6,
+    description: "Stay at luxury resorts on the iconic palm-shaped island.",
+    detailedDescription:
+      "Relax in world-class resorts on Palm Jumeirah, enjoy pristine beaches, fine dining, and breathtaking views of Dubai’s skyline. Ideal for luxurious seaside getaways."
+  },
+
+  // --- BALI DESTINATIONS ---
+  {
+    id: "bali1",
+    src: "/bali1.jpeg",
+    title: "Ubud Cultural Escape",
+    location: "Bali",
+    rating: 4.8,
+    description: "Immerse yourself in Bali’s art, temples, and rice terraces.",
+    detailedDescription:
+      "Discover Ubud’s cultural heart through art galleries, sacred temples, and scenic rice terraces. Participate in yoga retreats and traditional Balinese ceremonies for a soulful experience."
+  },
+  {
+    id: "bali2",
+    src: "/bali2.jpeg",
+    title: "Nusa Penida Adventure",
+    location: "Bali",
+    rating: 4.9,
+    description: "Explore stunning cliffs, beaches, and crystal waters.",
+    detailedDescription:
+      "Take a boat to Nusa Penida and witness dramatic cliffs, hidden beaches, and vibrant marine life. Ideal for day trips, snorkeling, and capturing unforgettable island views."
+  },
+  {
+    id: "bali3",
+    src: "/bali3.jpeg",
+    title: "Seminyak Beach Experience",
+    location: "Bali",
+    rating: 4.7,
+    description: "Luxury beach clubs and sunset views.",
+    detailedDescription:
+      "Enjoy Bali’s cosmopolitan side in Seminyak with trendy beach clubs, fine dining, and luxury spas. Watch the sunset over the Indian Ocean with a tropical cocktail in hand."
+  }
 ];
 

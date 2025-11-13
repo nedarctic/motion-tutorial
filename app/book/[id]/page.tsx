@@ -1,16 +1,27 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { safaris } from "../../data/lib";
 import { motion } from "framer-motion";
 import { montserrat, manrope } from "../../fonts";
 import { useMemo } from "react";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export default function BookTripPage() {
-  const pathname = usePathname(); // e.g. /book/maasai-mara
-  const safariId = pathname?.split("/").filter(Boolean).pop() || "";
+  const pathname = usePathname();
+  const router = useRouter();
 
+  const safariId = pathname?.split("/").filter(Boolean).pop() || "";
   const safari = useMemo(() => safaris.find((s) => s.id === safariId), [safariId]);
+
+  const handleBack = () => {
+    // Go back if there's navigation history, otherwise fallback to safaris page
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/safaris");
+    }
+  };
 
   if (!safari) {
     return (
@@ -28,6 +39,14 @@ export default function BookTripPage() {
         style={{ backgroundImage: `url(${safari.src})` }}
       />
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+
+      {/* Back Button */}
+      <button
+        onClick={() => router.back()}
+        className="absolute top-8 left-8 w-12 h-12 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition z-20"
+      >
+        <AiOutlineArrowLeft className="text-white w-6 h-6" />
+      </button>
 
       <section className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 py-32">
         <motion.h1
@@ -109,7 +128,7 @@ export default function BookTripPage() {
           <div className="mt-10 flex justify-center">
             <button
               type="submit"
-              className="bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#DCCAB2] transition-all"
+              className="bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#DCCAB2]/90 transition-all"
             >
               Submit Booking Request
             </button>
