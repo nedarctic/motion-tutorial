@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { montserrat, manrope } from "../fonts";
@@ -7,208 +6,258 @@ import { montserrat, manrope } from "../fonts";
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen text-black overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center  bg-linear-to-b from-[#63581F] via-black/30 to-black/70">
+      {/* Section 1: Hero Banner */}
+      <section className="relative h-[85vh] w-full flex flex-col items-center justify-center bg-linear-to-b from-[#63581F] via-black/40 to-black/80">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="relative z-10 text-center px-6"
+          className="relative z-10 text-center px-6 max-w-4xl mx-auto"
         >
           <h1
-            className={`${montserrat.className} text-5xl md:text-6xl font-extrabold text-[#DCCAB2] mb-4`}
+            className={`${montserrat.className} text-4xl py-4 md:text-7xl font-extrabold text-[#DCCAB2] mb-6 leading-tight`}
           >
-            About Us
+            Where Every Journey Is Thoughtfully Curated.
           </h1>
           <p
-            className={`${manrope.className} text-lg md:text-xl text-[#DCCAB2] max-w-3xl mx-auto`}
+            className={`${manrope.className} text-lg md:text-xl text-[#DCCAB2] mb-10 max-w-3xl mx-auto`}
           >
-            Where wanderlust meets curation. We craft experiences that stir the soul and
-            awaken the spirit of discovery.
+            Boutique travel experiences designed with intention, style, and heart from Africa’s wild treasures to the world’s hidden gems.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              href="/book"
+              className={`${manrope.className} bg-[#DCCAB2] text-black font-semibold px-8 py-3 rounded-full text-lg shadow-lg hover:bg-[#a78b66] transition-all`}
+            >
+              Plan Your Trip
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              href="/safaris"
+              className={`${manrope.className} border-2 border-[#DCCAB2] text-[#DCCAB2] font-semibold px-8 py-3 rounded-full text-lg hover:bg-[#DCCAB2] transition-all`}
+            >
+              Explore Destinations
+            </motion.a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Section 2: About Us (Main Intro) */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2
+            className={`${montserrat.className} text-3xl md:text-5xl font-bold text-[#DCCAB2] mb-8`}
+          >
+            About Curated By Ray
+          </h2>
+          <p
+            className={`${manrope.className} text-[#DCCAB2] text-lg leading-relaxed max-w-4xl mx-auto`}
+          >
+            Curated By Ray is a boutique travel company dedicated to crafting seamless, personalized journeys across Africa and beyond. From Kenya’s wild heartlands to the tropical escapes of Zanzibar, Dubai, and Bali, every itinerary is designed to reflect your rhythm, curiosity, and sense of adventure. We believe travel should feel effortless yet extraordinary — guided by detail, intention, and care. Whether it’s a family getaway, romantic escape, or curated group experience, we bring destinations to life through comfort, connection, and local expertise.
           </p>
         </motion.div>
       </section>
 
-      {/* Story Section */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2
-              className={`${montserrat.className} text-3xl md:text-4xl font-bold text-[#DCCAB2] mb-6`}
-            >
-              Our Story
-            </h2>
-            <p
-              className={`${manrope.className} text-[#DCCAB2] leading-relaxed mb-6`}
-            >
-              Founded with a vision to redefine adventure, <span className="text-[#DCCAB2] font-medium">Curated by Ray</span> was born out of
-              a simple belief, that travel is not about checking places off a list, but
-              about immersing yourself in moments that linger forever.
-            </p>
-            <p
-              className={`${manrope.className} text-[#DCCAB2] leading-relaxed mb-6`}
-            >
-              From the savannas of the Maasai Mara to the turquoise waters of Zanzibar,
-              every journey we design is a handcrafted experience, curated with
-              precision, passion, and a deep understanding of what it means to truly
-              explore.
-            </p>
-            <p
-              className={`${manrope.className} text-[#DCCAB2] leading-relaxed`}
-            >
-              We don’t just take you places, we help you connect with them. Because in
-              every horizon, there’s a story waiting to be lived.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="rounded-3xl overflow-hidden shadow-2xl"
-          >
-            <Image
-              src="/about-story.jpeg"
-              alt="Travel Story"
-              width={600}
-              height={400}
-              className="object-cover w-full h-full"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Mission Section */}
+      {/* Section 3: Mission & Vision */}
       <section className="relative bg-zinc-950/70 border-t border-white/10 py-24">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="rounded-3xl overflow-hidden shadow-2xl"
+            className="flex flex-col justify-center"
           >
-            <Image
-              src="/about-mission.jpeg"
-              alt="Mission"
-              width={600}
-              height={400}
-              className="object-cover w-full h-full"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h2
-              className={`${montserrat.className} text-3xl md:text-4xl font-bold text-[#DCCAB2] mb-6`}
+            <h3
+              className={`${montserrat.className} text-2xl md:text-3xl font-bold text-[#DCCAB2] mb-4`}
             >
               Our Mission
-            </h2>
-            <p
-              className={`${manrope.className} text-[#DCCAB2] leading-relaxed mb-6`}
-            >
-              To craft authentic, sustainable journeys that celebrate local culture,
-              protect nature, and transform travelers. Every itinerary is carefully
-              designed to ensure you experience Africa not as a spectator, but as a
-              participant, one who leaves a positive footprint behind.
+            </h3>
+            <p className={`${manrope.className} text-[#DCCAB2] leading-relaxed`}>
+              To create meaningful, memorable, and authentic travel experiences that connect people to the beauty, culture, and spirit of every destination.
             </p>
-            <p
-              className={`${manrope.className} text-[#DCCAB2] leading-relaxed`}
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col justify-center"
+          >
+            <h3
+              className={`${montserrat.className} text-2xl md:text-3xl font-bold text-[#DCCAB2] mb-4`}
             >
-              We partner with local communities, conservation initiatives, and
-              eco-lodges to ensure that your adventure also supports the ecosystems and
-              people that make it possible.
+              Our Vision
+            </h3>
+            <p className={`${manrope.className} text-[#DCCAB2] leading-relaxed`}>
+              To become the most trusted boutique travel brand from Kenya — known for curating inspiring journeys that celebrate culture, nature, and individuality.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Section 4: Meet the Team */}
       <section className="relative max-w-6xl mx-auto px-6 md:px-12 py-24">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-3xl md:text-4xl font-bold text-center text-[#DCCAB2] mb-16`}
+          className={`${montserrat.className} text-3xl md:text-4xl font-bold text-center text-[#DCCAB2] mb-6`}
         >
-          Our Values
+          Meet the Curators
         </motion.h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className={`${manrope.className} text-[#DCCAB2] text-center max-w-3xl mx-auto mb-16`}
+        >
+          Behind every itinerary is a team of passionate travel curators who blend local insight with global perspective. We go beyond standard travel planning — every trip is personalized, guided, and thoughtfully detailed from start to finish.
+        </motion.p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
-              title: "Authenticity",
-              text: "We curate experiences that feel real — not rehearsed. Every safari, every encounter, is deeply rooted in the land and its people.",
-              icon: "🌍",
+              name: "Ray",
+              role: "Founder & Lead Travel Curator",
+              img: "/team-ray.jpeg",
+              bio: "Visionary behind every curated journey, with over a decade of exploring Africa’s hidden paths.",
             },
             {
-              title: "Sustainability",
-              text: "We believe travel should give back. From eco-lodges to local guides, we champion responsible tourism that preserves our planet.",
-              icon: "🌱",
+              name: "Amina",
+              role: "Guest Relations Manager",
+              img: "/team-guest.jpeg",
+              bio: "Ensures every guest feels at home from the first inquiry to the final farewell.",
             },
             {
-              title: "Excellence",
-              text: "From first contact to farewell, we uphold the highest standards of hospitality and craftsmanship in every journey we design.",
-              icon: "✨",
+              name: "Juma",
+              role: "Destination Expert, East Africa & Islands",
+              img: "/team-expert.jpeg",
+              bio: "Master of Zanzibar’s tides and Kenya’s savannas — your guide to authentic local immersion.",
             },
-          ].map((value, idx) => (
+          ].map((member, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: idx * 0.2 }}
-              className="bg-[#DCCAB2] p-8 rounded-3xl shadow-lg hover:shadow-[#836a4a] transition"
+              transition={{ duration: 0.8, delay: idx * 0.15 }}
+              className="group relative bg-linear-to-br from-[#DCCAB2]/10 to-[#DCCAB2]/5 rounded-3xl overflow-hidden shadow-lg hover:shadow-[#836a4a]/50 transition-all"
             >
-              <div className="text-4xl mb-4">{value.icon}</div>
-              <h3
-                className={`${montserrat.className} text-xl font-semibold text-black mb-3`}
-              >
-                {value.title}
-              </h3>
-              <p className={`${manrope.className} text-black leading-relaxed`}>
-                {value.text}
-              </p>
+              <div className="aspect-w-1 aspect-h-1 relative h-80 overflow-hidden">
+                <Image
+                  src={member.img}
+                  alt={member.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 className={`${montserrat.className} text-xl font-bold`}>{member.name}</h3>
+                <p className={`${manrope.className} text-sm opacity-90`}>{member.role}</p>
+                <p className={`${manrope.className} text-sm mt-2 opacity-80`}>{member.bio}</p>
+              </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Closing Section */}
+      {/* Section 5: Why Travel With Us */}
+      <section className="relative bg-zinc-950/70 border-t border-white/10 py-24">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className={`${montserrat.className} text-3xl md:text-4xl font-bold text-center text-[#DCCAB2] mb-16`}
+          >
+            Why Choose Curated By Ray
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: "🎨",
+                title: "Personalized",
+                text: "Seamless travel planning tailored to your unique style and preferences.",
+              },
+              {
+                icon: "💎",
+                title: "Handpicked",
+                text: "Destinations and experiences selected for authenticity and exclusivity.",
+              },
+              {
+                icon: "🤝",
+                title: "Local Partnerships",
+                text: "Trusted guides and community ties that open doors to real culture.",
+              },
+              {
+                icon: "🛎️",
+                title: "Concierge-Style",
+                text: "24/7 support and thoughtful touches throughout your entire journey.",
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
+                className="text-center group"
+              >
+                <div className="text-5xl mb-4 transition-transform group-hover:scale-110">{item.icon}</div>
+                <h3 className={`${montserrat.className} text-xl font-semibold text-[#DCCAB2] mb-2`}>
+                  {item.title}
+                </h3>
+                <p className={`${manrope.className} text-[#DCCAB2]/80 text-sm`}>
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Call-to-Action */}
       <section className="relative bg-linear-to-t from-black to-zinc-950 py-32 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-4xl md:text-5xl font-bold text-[#DCCAB2] mb-6`}
+          className="max-w-3xl mx-auto px-6"
         >
-          Join the Journey
-        </motion.h2>
-        <p
-          className={`${manrope.className} text-[#DCCAB2] text-lg max-w-2xl mx-auto mb-10`}
-        >
-          Every story begins with a single step. Take yours today, and let us curate a
-          journey that will stay with you forever.
-        </p>
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          href="/book"
-          className="bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#a78b66] transition-all"
-        >
-          Book Your Adventure
-        </motion.a>
+          <h2
+            className={`${montserrat.className} text-4xl md:text-5xl font-bold text-[#DCCAB2] mb-6`}
+          >
+            Ready to start your curated journey?
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              href="/destinations"
+              className={`${manrope.className} bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#a78b66] transition-all`}
+            >
+              Explore Destinations
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              href="/contact"
+              className={`${manrope.className} border-2 border-[#DCCAB2] text-[#DCCAB2] font-semibold px-10 py-4 rounded-full text-lg hover:bg-[#DCCAB2] hover:text-black transition-all`}
+            >
+              Get in Touch
+            </motion.a>
+          </div>
+        </motion.div>
       </section>
     </main>
   );
