@@ -1,7 +1,6 @@
 "use client";
-
 import { montserrat, manrope } from "../fonts";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion, Variants } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -27,7 +26,11 @@ export default function Footer() {
     hidden: {},
     visible: { transition: { staggerChildren: 0.25 } },
   };
-  const fadeUp: Variants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } };
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
 
   const quickLinks = ["Home", "About", "Safaris", "Book a Trip"];
 
@@ -78,12 +81,12 @@ export default function Footer() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/50 outline-none text-sm md:text-base"
+          className="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/50 outline-none text-sm md:text-base focus:ring-2 focus:ring-[#DCCAB2]/50 transition"
         />
         <motion.button
           variants={fadeUp}
           type="submit"
-          className="bg-[#DCCAB2] text-black font-semibold px-6 py-3 rounded-full text-sm md:text-base hover:bg-[#DCCAB2] transition"
+          className="bg-[#DCCAB2] text-black font-semibold px-6 py-3 rounded-full text-sm md:text-base hover:bg-[#a78b66] transition shadow-md"
         >
           Subscribe
         </motion.button>
@@ -101,8 +104,8 @@ export default function Footer() {
           <motion.a
             key={idx}
             variants={fadeUp}
-            href={`#${link.toLowerCase().replace(" ", "-")}`}
-            className="text-[#DCCAB2] transition"
+            href={`/${link.toLowerCase().replace(" ", "-")}`}
+            className="text-[#DCCAB2] hover:underline transition"
           >
             {link}
           </motion.a>
@@ -117,26 +120,81 @@ export default function Footer() {
         viewport={{ once: true, amount: 0.3 }}
         className="flex gap-6 mt-6 text-lg md:text-xl"
       >
-        {[FaFacebookF, FaInstagram, FaTwitter, FaYoutube].map((Icon, idx) => (
+        {[
+          { Icon: FaFacebookF, href: "https://facebook.com/curatedbyray" },
+          { Icon: FaInstagram, href: "https://instagram.com/curatedbyray" },
+          { Icon: FaTwitter, href: "https://twitter.com/curatedbyray" },
+          { Icon: FaYoutube, href: "https://youtube.com/curatedbyray" },
+        ].map(({ Icon, href }, idx) => (
           <motion.a
             key={idx}
             variants={fadeUp}
-            href="#"
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-[#DCCAB2] transition"
           >
-            <Icon className="text-[#DCCAB2]"/>
+            <Icon className="text-[#DCCAB2]" />
           </motion.a>
         ))}
       </motion.div>
 
+      {/* Company Location & Contact Info */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ delay: 0.4 }}
+        className="mt-16 w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-[#DCCAB2]/90 justify-items-center md:justify-items-start text-center md:text-left"
+      >       
+
+        {/* P.O. Box */}
+        <div className="flex flex-col items-center md:items-start gap-3">
+          <FaEnvelope className="text-[#DCCAB2] mt-1 shrink-0" />
+          <div>
+            <p className="font-medium text-white">Mail Us</p>
+            <p className={`${manrope.className}`}>
+              P.O. Box 20320 00200<br />
+              CITY SQUARE, Nairobi
+            </p>
+          </div>
+        </div>
+
+        {/* Address */}
+        <div className="flex flex-col items-center md:items-start gap-3">
+          <FaMapMarkerAlt className="text-[#DCCAB2] mt-1 shrink-0" />
+          <div>
+            <p className="font-medium text-white">Visit Us</p>
+            <p className={`${manrope.className}`}>
+              WESTLANDS, Waiyaki Way<br />
+              CBD, Starehe District<br />
+              Nairobi County, Kenya
+            </p>
+          </div>
+        </div>
+
+        {/* Contact Placeholder */}
+        <div className="flex flex-col items-center md:items-start gap-3">
+          <FaPhone className="text-[#DCCAB2] mt-1 shrink-0" />
+          <div>
+            <p className="font-medium text-white">Call Us</p>
+            <p className={`${manrope.className}`}>
+              +254 700 000 000<br />
+              Mon–Fri: 8AM–6PM EAT
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Logo and Footer Note */}
-      <div className="flex flex-col items-center mt-12 space-y-2">
+      <div className="flex flex-col items-center mt-16 space-y-4">
         <Image
           src="/Pale Beige Logo.svg"
           alt="Curated by Ray"
-          className="h-10 w-auto text-[#DCCAB2]"
-          height={300}
-          width={300}
+          height={48}
+          width={180}
+          className="h-12 w-auto"
         />
         <motion.p
           variants={fadeUp}
@@ -146,7 +204,17 @@ export default function Footer() {
           transition={{ delay: 0.6 }}
           className={`${manrope.className} text-[#DCCAB2] text-sm md:text-base text-center max-w-xl`}
         >
-          &copy; {new Date().getFullYear()} All rights reserved.
+          © {new Date().getFullYear()} Curated by Ray. All rights reserved.
+        </motion.p>
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ delay: 0.7 }}
+          className={`${manrope.className} text-center text-[#DCCAB2]/60 text-xs`}
+        >
+          Nairobi, Kenya • Crafted with intention, from Africa to the world.
         </motion.p>
       </div>
     </footer>
