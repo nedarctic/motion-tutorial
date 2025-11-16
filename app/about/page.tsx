@@ -15,7 +15,7 @@ export default function AboutPage() {
           className="relative z-10 text-center px-6 max-w-4xl mx-auto"
         >
           <h1
-            className={`${montserrat.className} text-4xl py-4 md:text-7xl font-extrabold text-[#DCCAB2] mb-6 leading-tight`}
+            className={`${montserrat.className} text-4xl mt-8 md:text-7xl font-extrabold text-[#DCCAB2] mb-6 leading-tight`}
           >
             Where Every Journey Is Thoughtfully Curated.
           </h1>
