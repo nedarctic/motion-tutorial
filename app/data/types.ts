@@ -38,3 +38,17 @@ export type Testimonial = {
     location: string;
     image: string;
 }
+
+export type BlogPost = {
+    id: number;
+    title: string;
+    excerpt: string;
+    author: string;
+    date: string;
+    readTime: string;
+    category: string;
+    authorImage: string;
+    image: string;
+    slug: string;
+    content: string;
+}
