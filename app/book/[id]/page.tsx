@@ -4,8 +4,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { safaris } from "../../data/lib";
 import { motion } from "framer-motion";
 import { montserrat, manrope } from "../../fonts";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+
+import { bookExperience } from "../../helpers/bookExperience";
+import FeedbackModal from '../../components/FeedbackModal';
 
 export default function BookTripPage() {
   const pathname = usePathname();
@@ -21,6 +24,58 @@ export default function BookTripPage() {
     } else {
       router.push("/safaris");
     }
+  };
+
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    phone: "",
+    travel_date: "",
+    special_requests: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [modal, setModal] = useState<{
+    type: "success" | "error" | null;
+    message?: string;
+  }>({ type: null });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setModal({ type: null });
+    setLoading(true);
+
+    const result = await bookExperience(formData);
+
+    if (!result.success) {
+      setModal({ type: "error", message: result.error });
+      setLoading(false);
+      return;
+    }
+
+    // Success
+    setModal({
+      type: "success",
+      message: "Your booking was successful. We’ll get back to you shortly!",
+    });
+
+    // Clear inputs
+    setFormData({
+      full_name: "",
+      email: "",
+      phone: "",
+      travel_date: "",
+      special_requests: "",
+    });
+
+    setLoading(false);
   };
 
   if (!safari) {
@@ -70,6 +125,7 @@ export default function BookTripPage() {
 
         {/* Booking Form */}
         <motion.form
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -83,6 +139,9 @@ export default function BookTripPage() {
                 required
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="Your name"
+                value={formData.full_name}
+                name="full_name"
+                onChange={handleChange}
               />
             </div>
 
@@ -93,6 +152,9 @@ export default function BookTripPage() {
                 required
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="you@example.com"
+                value={formData.email}
+                name="email"
+                onChange={handleChange}
               />
             </div>
 
@@ -103,6 +165,9 @@ export default function BookTripPage() {
                 required
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="+254 700 000 000"
+                value={formData.phone}
+                name="phone"
+                onChange={handleChange}
               />
             </div>
 
@@ -112,6 +177,9 @@ export default function BookTripPage() {
                 type="date"
                 required
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
+                value={formData.travel_date}
+                name="travel_date"
+                onChange={handleChange}
               />
             </div>
 
@@ -121,6 +189,9 @@ export default function BookTripPage() {
                 rows={4}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2] resize-none"
                 placeholder="Let us know your preferences..."
+                value={formData.special_requests}
+                name="special_requests"
+                onChange={handleChange}
               ></textarea>
             </div>
           </div>
@@ -133,6 +204,7 @@ export default function BookTripPage() {
               Submit Booking Request
             </button>
           </div>
+          <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Booking"/>
         </motion.form>
       </section>
     </main>

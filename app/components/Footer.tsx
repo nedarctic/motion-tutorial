@@ -4,6 +4,8 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaEnvel
 import { motion, Variants } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import FeedbackModal from "./FeedbackModal";
+import { subscribe } from '../helpers/subscribe'
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -16,12 +18,6 @@ export default function Footer() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(`Subscribed with: ${email}`);
-    setEmail("");
-  };
-
   const staggerContainer = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.25 } },
@@ -33,6 +29,53 @@ export default function Footer() {
   };
 
   const quickLinks = ["Home", "About", "Safaris", "Book a Trip"];
+
+  const [loading, setLoading] = useState(false);
+  const [modal, setModal] = useState<{ type: "success" | "error" | null; message?: string }>({ type: null });
+
+  const handleSubscription = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setModal({ type: null });
+
+    if (!email.trim()) {
+      return setModal({ type: "error", message: "Please enter your email." });
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await subscribe(email);
+
+      if (!res.success) {
+        const err = res.error;
+
+        const message =
+          err?.email?.[0] ||
+          err?.detail ||
+          "Unable to subscribe. Please try again.";
+
+        setModal({ type: "error", message });
+        return;
+      }
+
+
+      // Success
+      setModal({
+        type: "success",
+        message: "Email subscribed successfully!",
+      });
+
+      setEmail("");
+    } catch (error) {
+      setModal({
+        type: "error",
+        message: "Unable to subscribe. Please try again."
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <footer className="relative min-h-[80vh] flex flex-col justify-center items-center text-white py-24 px-6 md:px-20 overflow-hidden bg-linear-to-t from-[#63581F] via-black/30 to-black/70">
@@ -47,6 +90,8 @@ export default function Footer() {
           style={{ backgroundImage: "url('/images/kenya-backdrop.jpg')" }}
         />
       </div>
+
+      <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Subscription" />
 
       {/* Heading */}
       <motion.h2
@@ -67,7 +112,7 @@ export default function Footer() {
 
       {/* Newsletter form */}
       <motion.form
-        onSubmit={handleSubscribe}
+        onSubmit={handleSubscription}
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -147,7 +192,7 @@ export default function Footer() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ delay: 0.4 }}
         className="mt-16 w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-[#DCCAB2]/90 justify-items-center md:justify-items-start text-center md:text-left"
-      >       
+      >
 
         {/* P.O. Box */}
         <div className="flex flex-col items-center md:items-start gap-3">

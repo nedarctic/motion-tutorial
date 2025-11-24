@@ -6,31 +6,70 @@ import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
+import FeedbackModal from "../components/FeedbackModal";
+import { sendMessage } from "../helpers/sendMessage";
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    dates: "",
+    travel_dates: "",
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [loading, setLoading] = useState(false);
+  const [modal, setModal] = useState<{
+    type: "success" | "error" | null;
+    message?: string;
+  }>({ type: null });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would go to Formspree, EmailJS, etc.
-    alert("Thank you! Ray will be in touch within 24 hours.");
+
+    setModal({ type: null });
+    setLoading(true);
+
+    const result = await sendMessage(formData);
+
+    if (!result.success) {
+      setModal({ type: "error", message: result.error });
+      setLoading(false);
+      return;
+    }
+
+    // Success
+    setModal({
+      type: "success",
+      message: "Your message has been sent. We’ll get back to you within 24 hours!",
+    });
+
+    // Clear inputs
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      travel_dates: "",
+      message: "",
+    });
+
+    setLoading(false);
   };
 
   return (
     <main className={`${manrope.className} min-h-screen bg-black text-white overflow-hidden`}>
+
+
       {/* Hero */}
       <section className="relative h-screen flex items-center justify-center text-center px-6">
         <Image
-          src="/contact-hero.jpeg" // Replace with a beautiful aerial of Kenya at golden hour
+          src="/contact-hero.jpeg"
           alt="Kenya landscape"
           fill
           className="object-cover brightness-[0.55]"
@@ -133,7 +172,7 @@ export default function ContactPage() {
             <h3 className={`${montserrat.className} text-2xl font-semibold text-[#DCCAB2] mb-8`}>
               Start Your Journey Today
             </h3>
-
+            <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Send Message"/>
             <form onSubmit={handleSubmit} className="space-y-7">
               <input
                 type="text"
@@ -166,9 +205,9 @@ export default function ContactPage() {
 
               <input
                 type="text"
-                name="dates"
+                name="travel_dates"
                 placeholder="Preferred Travel Dates (optional)"
-                value={formData.dates}
+                value={formData.travel_dates}
                 onChange={handleChange}
                 className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:border-[#DCCAB2] transition"
               />
