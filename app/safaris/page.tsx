@@ -33,13 +33,13 @@ export default function SafarisExplorePage() {
   const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
   return (
-    <main className={`${manrope.className} min-h-screen bg-zinc-50 dark:bg-black px-6 md:px-12 py-20`}>
+    <main className={`${manrope.className} min-h-screen bg-black px-6 md:px-12 py-20`}>
       {/* Page Intro & Search */}
       <section className="text-center mb-16 relative z-0 max-w-4xl mx-auto">
-        <h1 className="text-5xl sm:text-6xl font-extrabold text-black dark:text-white">
+        <h1 className="text-5xl sm:text-6xl font-extrabold text-zinc-50 dark:text-white">
           Explore <span className="text-[#DCCAB2] dark:text-[#DCCAB2]">Safaris</span>
         </h1>
-        <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-400 mt-4">
+        <p className="text-lg sm:text-xl text-zinc-50 mt-4">
           Discover and plan your next unforgettable Kenyan safari adventure. Filter and explore experiences across the country.
         </p>
 
@@ -53,7 +53,7 @@ export default function SafarisExplorePage() {
               setQuery(e.target.value);
               setCurrentPage(1);
             }}
-            className="w-full text-center text-lg md:text-xl px-6 py-4 rounded-full border border-[#DCCAB2] bg-black/10 dark:bg-white/10 text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 shadow-lg focus:ring-2 focus:ring-[#DCCAB2] transition"
+            className="w-full text-center text-lg md:text-xl px-6 py-4 rounded-full border border-[#DCCAB2] bg-black/10 dark:bg-white/10 text-zinc-50 placeholder-zinc-50 shadow-lg focus:ring-2 focus:ring-[#DCCAB2] transition"
           />
         </div>
       </section>

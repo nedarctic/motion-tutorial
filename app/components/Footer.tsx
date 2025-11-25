@@ -78,7 +78,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative min-h-[80vh] flex flex-col justify-center items-center text-white py-24 px-6 md:px-20 overflow-hidden bg-linear-to-t from-[#63581F] via-black/30 to-black/70">
+    <footer className="relative min-h-[80vh] flex flex-col justify-center items-center text-white py-24 px-6 md:px-20 overflow-hidden bg-black bg-linear-to-t from-[#63581F] via-black/30 to-black/70">
       {/* Distant backdrop with parallax */}
       <div
         ref={backdropRef}
@@ -225,7 +225,7 @@ export default function Footer() {
           <div>
             <p className="font-medium text-white">Call Us</p>
             <p className={`${manrope.className}`}>
-              +254 700 000 000<br />
+              +254 714 270 768<br />
               Mon–Fri: 8AM–6PM EAT
             </p>
           </div>

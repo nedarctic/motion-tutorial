@@ -112,7 +112,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className={`${satisfy.className} text-5xl md:text-6xl text-[#DCCAB2] mb-8`}>
+              <h2 className={`${satisfy.className} text-center text-5xl md:text-6xl text-[#DCCAB2] mb-8`}>
                 Get in Touch
               </h2>
               <p className={`${montserrat.className} text-[#DCCAB2] text-lg leading-relaxed max-w-lg`}>
@@ -123,7 +123,7 @@ export default function ContactPage() {
 
             <div className="space-y-8">
               {[
-                { icon: Phone, label: "Phone / WhatsApp", value: "+254 712 345 678" },
+                { icon: Phone, label: "Phone / WhatsApp", value: "+254 714 270 768" },
                 { icon: Mail, label: "Email", value: "ray@curatedbyray.com" },
                 { icon: MapPin, label: "Based in", value: "Nairobi, Kenya" },
                 { icon: Clock, label: "Response Time", value: "Within 24 hours" },
@@ -155,7 +155,7 @@ export default function ContactPage() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className={`${montserrat.className} italic text-[#DCCAB2] text-lg pt-10 border-t border-white/10`}
+              className={`${montserrat.className} text-center italic text-[#DCCAB2] text-lg pt-10 border-t border-white/10`}
             >
               “We don't just plan trips, we create memories that last a lifetime.”
             </motion.p>

@@ -8,7 +8,7 @@ export default function WhyChooseUsSection() {
   return (
     <section
       id="why-us"
-      className={`${manrope.className} relative min-h-screen flex flex-col items-center py-28 px-8 md:px-20`}
+      className={`${manrope.className} bg-linear-to-t from-black/70 via-[#63581F] to-black/70 relative min-h-screen flex flex-col items-center py-28 px-8 md:px-20`}
     >
       {/* Distant atmospheric backdrop */}
       <div className="absolute inset-0 -z-10">
