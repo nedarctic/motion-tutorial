@@ -99,7 +99,7 @@ export default function SafarisExplorePage() {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <section className="flex justify-center items-center gap-6 mt-16 text-black dark:text-white">
+        <section className="flex justify-center items-center gap-6 mt-16 text-zinc-50 dark:text-white">
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
