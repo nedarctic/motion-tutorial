@@ -1,5 +1,5 @@
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-const messageUrl = `${BACKEND_URL}/message`;
+const messageUrl = `${BACKEND_URL}/message/`;
 
 export async function sendMessage(data: {
   name: string;

@@ -1,5 +1,5 @@
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-const subscribeUrl = `${BACKEND_URL}/subscribe`;
+const subscribeUrl = `${BACKEND_URL}/subscribe/`;
 
 export async function subscribe(email: string) {
   try {

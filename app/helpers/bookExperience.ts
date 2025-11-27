@@ -1,5 +1,5 @@
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-const messageUrl = `${BACKEND_URL}/book`;
+const messageUrl = `${BACKEND_URL}/book/`;
 
 export async function bookExperience(data: {
   full_name: string;
