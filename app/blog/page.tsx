@@ -93,7 +93,7 @@ export default function BlogPage() {
         </div>
 
         {/* Load More / Pagination Placeholder */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -101,7 +101,7 @@ export default function BlogPage() {
           >
             Load More Stories
           </motion.button>
-        </div>
+        </div> */}
       </section>
 
       {/* Newsletter CTA */}
