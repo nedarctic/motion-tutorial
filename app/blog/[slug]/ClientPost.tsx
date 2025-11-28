@@ -99,7 +99,7 @@ export default function ClientPost({ post }: Props) {
             Plan My Escape
           </Link>
           <Link
-            href="/destinations"
+            href="/safaris"
             className="border-2 border-[#DCCAB2] text-[#DCCAB2] font-bold px-10 py-5 rounded-full text-center text-lg hover:bg-[#DCCAB2] hover:text-black transition"
           >
             Explore All Journeys
