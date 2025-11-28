@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const experiences = [
   {
-    id: "sunrise-hot-air-balloon",
+    id: "maasai-mara-2",
     title: "Sunrise Hot Air Balloon Safari",
     location: "Maasai Mara",
     duration: "4–5 hours",
@@ -20,7 +20,7 @@ const experiences = [
     featured: true,
   },
   {
-    id: "walking-safari-tsavo",
+    id: "safari-8",
     title: "Guided Walking Safari",
     location: "Tsavo East",
     duration: "3–6 hours",
@@ -30,7 +30,7 @@ const experiences = [
     src: "/walking-safari.jpeg",
   },
   {
-    id: "bush-dinner-under-stars",
+    id: "safari-17",
     title: "Private Bush Dinner Under the Stars",
     location: "Laikipia or Mara Conservancies",
     duration: "Evening",
@@ -40,7 +40,7 @@ const experiences = [
     src: "/bush-dinner.jpeg",
   },
   {
-    id: "helicopter-to-mount-kenya",
+    id: "mount-kenya",
     title: "Helicopter Journey to Mount Kenya",
     location: "Mount Kenya & Lewa",
     duration: "Full day",
@@ -51,7 +51,7 @@ const experiences = [
     featured: true,
   },
   {
-    id: "cultural-maasai-village",
+    id: "maasai-mara",
     title: "Maasai Village Cultural Immersion",
     location: "Maasai Mara Region",
     duration: "Half day",
@@ -61,7 +61,7 @@ const experiences = [
     src: "/maasai-village.jpeg",
   },
   {
-    id: "sundowner-safari",
+    id: "bali1",
     title: "Classic Sundowner Experience",
     location: "Any Reserve",
     duration: "2 hours",
@@ -201,11 +201,8 @@ export default function ExperiencesPage() {
                 </div>
 
                 <div className="flex flex-col items-start justify-center">
-                  <p className={`${montserrat.className} text-lg font-semibold text-white`}>
-                    {exp.price}
-                  </p>
                   <Link
-                    href={`/experiences/${exp.id}`}
+                    href={`/explore/${exp.id}`}
                     className={`${montserrat.className} bg-[#DCCAB2] text-black px-6 py-2 rounded-full font-semibold hover:bg-[#c5b09a] transition-transform transform hover:scale-105 shadow-lg`}
                   >
                     View Details
