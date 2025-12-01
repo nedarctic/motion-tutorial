@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants, Transition } from "framer-motion";
 import BackgroundImage from "./BackgroundImage";
 import ForegroundCarousel from "./ForegroundCarousel";
 import { manrope } from "../fonts";
@@ -10,30 +10,28 @@ import Image from "next/image";
 import { images } from "../data/lib";
 import { satisfy } from "../fonts";
 
-
 export default function HeroSection() {
     const [bgIndex, setBgIndex] = useState(0);
     const [carouselIndex, setCarouselIndex] = useState(1);
     const [finished, setFinished] = useState(false);
     const [showFinalText, setShowFinalText] = useState(false);
-    const heroRef = useRef(null);
+    const heroRef = useRef<HTMLElement | null>(null);
 
     const nextImage = () => {
         if (bgIndex < images.length - 1) {
-            setBgIndex((prev) => prev + 1);
-            setCarouselIndex((prev) => prev + 1);
+            setBgIndex(prev => prev + 1);
+            setCarouselIndex(prev => prev + 1);
         } else {
             setFinished(true);
             setShowFinalText(true);
         }
     };
 
-    // Core animation timing
     useEffect(() => {
         if (bgIndex < images.length - 1) {
             const timer = setTimeout(() => {
-                setBgIndex((prev) => prev + 1);
-                setCarouselIndex((prev) => prev + 1);
+                setBgIndex(prev => prev + 1);
+                setCarouselIndex(prev => prev + 1);
             }, 4000);
             return () => clearTimeout(timer);
         } else {
@@ -45,26 +43,21 @@ export default function HeroSection() {
         }
     }, [bgIndex]);
 
-    // Scroll to next section after 3s of final text
     useEffect(() => {
         if (showFinalText) {
             const scrollTimer = setTimeout(() => {
                 const nextSection = document.getElementById("next-section");
-                if (nextSection) {
-                    nextSection.scrollIntoView({ behavior: "smooth" });
-                }
+                if (nextSection) nextSection.scrollIntoView({ behavior: "smooth" });
             }, 3000);
             return () => clearTimeout(scrollTimer);
         }
     }, [showFinalText]);
 
-    // Replay when hero re-enters viewport
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry) => {
+                entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Reset all states to restart animation
                         setBgIndex(0);
                         setCarouselIndex(1);
                         setFinished(false);
@@ -72,7 +65,7 @@ export default function HeroSection() {
                     }
                 });
             },
-            { threshold: 0.6 } // hero must be ~60% visible
+            { threshold: 0.6 }
         );
 
         const current = heroRef.current;
@@ -83,20 +76,16 @@ export default function HeroSection() {
         };
     }, []);
 
-    // Container variant for staggering children
-    const container = {
+    const fadeUpTransition: Transition = { duration: 0.6, ease: [0.42, 0, 0.58, 1] };
+
+    const container: Variants = {
         hidden: {},
-        show: {
-            transition: {
-                staggerChildren: 0.4, // delay between each child
-            },
-        },
+        show: { transition: { staggerChildren: 0.4 } }
     };
 
-    // Individual item variant
-    const item = {
+    const item: Variants = {
         hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        show: { opacity: 1, y: 0, transition: fadeUpTransition }
     };
 
     return (
@@ -104,36 +93,37 @@ export default function HeroSection() {
             ref={heroRef}
             className="relative h-screen lg:min-h-[600px] lg:max-h-[800px] overflow-hidden bg-black text-white flex flex-col items-center justify-center"
         >
-            {/* Background + Foreground + UI grouped for fade-out */}
             <AnimatePresence mode="wait">
                 {!finished && (
                     <motion.div
                         key="hero-animated-group"
                         initial={{ opacity: 1 }}
-                        exit={{ opacity: 0, transition: { duration: 1.2, ease: "easeOut" } }}
+                        exit={{ opacity: 0, transition: { duration: 1.2, ease: [0.42, 0, 0.58, 1] } }}
                         className="absolute inset-0 flex flex-col items-center justify-center"
                     >
-                        {/* Background */}
                         <BackgroundImage key={images[bgIndex].src} image={images[bgIndex]} />
 
-                        {/* Foreground Carousel */}
-                        <div className="absolute left-1/2 bottom-10 flex justify-center">
+                        {/* foreground carousel */}
+
+                        <div className="absolute left-1/2 bottom-25 flex justify-center">
                             <ForegroundCarousel images={images} currentIndex={carouselIndex} />
                         </div>
 
-                        {/* Forward button */}
+                        {/* button to go to next image */}
+
                         <button
                             onClick={nextImage}
                             disabled={finished || bgIndex >= images.length - 1}
-                            className="absolute top-3/5 left-12 w-20 h-20 md:w-16 md:h-16 rounded-full bg-transparent text-[#DCCAB2] flex items-center justify-center shadow-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
+                            className="absolute left-10 sm:left-20 bottom-10 w-20 h-20 md:w-16 md:h-16 rounded-full bg-transparent text-[#DCCAB2] flex items-center justify-center shadow-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
                         >
                             <TfiArrowCircleRight className="text-xl md:text-2xl" size={50} />
                         </button>
 
                         {/* Image counter */}
-                        <div className="absolute right-20 bottom-25 flex flex-col items-center gap-4 z-30">
+
+                        <div className="absolute right-10 sm:right-20 bottom-10 flex flex-col items-center gap-4 z-30">
                             <div className={`${manrope.className} text-white flex items-baseline gap-2`}>
-                                <span className="text-2xl text-[#DCCAB2] md:text-4xl font-extrabold leading-none">
+                                <span className="text-4xl text-[#DCCAB2] md:text-4xl font-extrabold leading-none">
                                     {String(bgIndex + 1).padStart(2, "0")}
                                 </span>
                                 <span className="text-lg text-[#DCCAB2] md:text-xl opacity-90">/</span>
@@ -146,16 +136,12 @@ export default function HeroSection() {
                 )}
             </AnimatePresence>
 
-
             <AnimatePresence mode="wait">
                 {showFinalText && (
                     <motion.div
                         className={`${manrope.className} absolute inset-0 flex flex-col items-center justify-center text-6xl font-bold gap-16`}
                         style={{
-                            backgroundImage: `
-                    radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%),
-                    url(${images[3].src})
-                `,
+                            backgroundImage: `radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%), url(${images[3].src})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                         }}
@@ -165,7 +151,6 @@ export default function HeroSection() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 2 }}
                     >
-                        {/* Hero-style branding */}
                         <motion.h1
                             className={`${satisfy.className} text-[#DCCAB2] text-5xl md:text-7xl font-extrabold text-center`}
                             variants={item}
@@ -173,30 +158,19 @@ export default function HeroSection() {
                             Curated by Ray
                         </motion.h1>
 
-                        {/* Logo */}
-                        <motion.div
-                            className="flex justify-center items-center"
-                            variants={item}
-                        >
-                            <Image
-                                src="/Pale Beige Logo.svg"
-                                alt="Curated by Ray logo"
-                                width={300} 
-                                height={300}
-                            />
+                        <motion.div className="flex justify-center items-center" variants={item}>
+                            <Image src="/Pale Beige Logo.svg" alt="Curated by Ray logo" width={300} height={300} />
                         </motion.div>
 
-                        {/* Supporting text */}
                         <motion.h1
                             className={`${satisfy.className} text-[#DCCAB2] text-xl md:text-2xl font-extrabold text-center`}
                             variants={item}
                         >
                             Begin Your Journey
                         </motion.h1>
-
                     </motion.div>
                 )}
             </AnimatePresence>
-        </section >
+        </section>
     );
 }
