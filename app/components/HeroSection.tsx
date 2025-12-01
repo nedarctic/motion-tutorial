@@ -101,6 +101,30 @@ export default function HeroSection() {
                         exit={{ opacity: 0, transition: { duration: 1.2, ease: [0.42, 0, 0.58, 1] } }}
                         className="absolute inset-0 flex flex-col items-center justify-center"
                     >
+
+                        {/* button to go to next image */}
+
+                        <button
+                            onClick={nextImage}
+                            disabled={finished || bgIndex >= images.length - 1}
+                            className={`
+                                absolute left-8 sm:left-16 lg:left-28 bottom-8 lg:bottom-10 
+                                w-16 h-16 sm:w-20 sm:h-20 
+                                rounded-full 
+                                bg-black/40 backdrop-blur-sm border-2 border-[#DCCAB2]/60
+                                text-[#DCCAB2] hover:bg-black/60 hover:border-[#DCCAB2] hover:scale-110
+                                flex items-center justify-center 
+                                shadow-2xl z-40
+                                transition-all duration-300
+                                disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100
+                            `}
+                            aria-label="Next image"
+                        >
+                            <TfiArrowCircleRight className="w-8 h-8 sm:w-10 sm:h-10 drop-shadow-md" />
+                        </button>
+
+                        {/* Background image */}
+
                         <BackgroundImage key={images[bgIndex].src} image={images[bgIndex]} />
 
                         {/* foreground carousel */}
@@ -108,16 +132,6 @@ export default function HeroSection() {
                         <div className="absolute left-1/2 bottom-25 flex justify-center">
                             <ForegroundCarousel images={images} currentIndex={carouselIndex} />
                         </div>
-
-                        {/* button to go to next image */}
-
-                        <button
-                            onClick={nextImage}
-                            disabled={finished || bgIndex >= images.length - 1}
-                            className="absolute left-10 sm:left-20 bottom-10 w-20 h-20 md:w-16 md:h-16 rounded-full bg-transparent text-[#DCCAB2] flex items-center justify-center shadow-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                        >
-                            <TfiArrowCircleRight className="text-xl md:text-2xl" size={50} />
-                        </button>
 
                         {/* Image counter */}
 

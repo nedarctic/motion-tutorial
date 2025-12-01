@@ -28,7 +28,7 @@ export default function Footer() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
-  const quickLinks = ["Home", "About", "Safaris", "Book a Trip"];
+  const quickLinks = [{ name: "Home", src: "/" }, { name: "About", src: "/about" }, { name: "Safaris", src: "/safaris" }, { name: "Book a Trip", src: "/book" }];
 
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState<{ type: "success" | "error" | "loading" | null; message?: string }>({ type: null });
@@ -145,14 +145,14 @@ export default function Footer() {
         viewport={{ once: true, amount: 0.3 }}
         className="flex flex-wrap justify-center gap-6 mt-12 text-white/80"
       >
-        {quickLinks.map((link, idx) => (
+        {quickLinks.map(({name, src}, index) => (
           <motion.a
-            key={idx}
+            key={index}
             variants={fadeUp}
-            href={`/${link.toLowerCase().replace(" ", "-")}`}
+            href={`${src}`}
             className="text-[#DCCAB2] hover:underline transition"
           >
-            {link}
+            {name}
           </motion.a>
         ))}
       </motion.div>

@@ -14,7 +14,7 @@ export default function BookPage() {
     <main className="relative min-h-screen text-white overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[url('/images/book-bg.jpg')] bg-cover bg-center brightness-75" />
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black backdrop-blur-sm" />
 
       <section className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-28">
         {/* Heading */}
