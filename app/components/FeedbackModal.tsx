@@ -38,7 +38,7 @@ export default function FeedbackModal({ modal, setModal, pageUsedFor }: FeedBack
           >
             {modal.type === "success" ? (
               <>
-                <CheckCircle className="mx-auto text-green-500 text-5xl mb-4" />
+                <CheckCircle className="text-[#DCCAB2] mx-auto text-5xl mb-4" />
                 <h2 className="text-xl font-semibold mb-2 text-black dark:text-white">
                   {pageUsedFor} Successful
                 </h2>
@@ -47,7 +47,7 @@ export default function FeedbackModal({ modal, setModal, pageUsedFor }: FeedBack
                 </p>
                 <button
                   onClick={() => { setModal({ type: null }); router.push('/'); }}
-                  className="px-6 py-2 rounded-full bg-black dark:bg-white text-white dark:text-black font-medium hover:opacity-90 transition"
+                  className="px-6 py-2 rounded-full bg-[#DCCAB2] text-black font-medium hover:opacity-90 transition"
                 >
                   Back to Home
                 </button>
@@ -71,7 +71,7 @@ export default function FeedbackModal({ modal, setModal, pageUsedFor }: FeedBack
                 <p className="text-zinc-600 dark:text-zinc-400 mb-6">{modal.message}</p>
                 <button
                   onClick={() => setModal({ type: null })}
-                  className="px-6 py-2 rounded-full bg-black dark:bg-white text-white dark:text-black font-medium hover:opacity-90 transition"
+                  className="px-6 py-2 rounded-full bg-[#DCCAB2] text-black font-medium hover:opacity-90 transition"
                 >
                   Try Again
                 </button>

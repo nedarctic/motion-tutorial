@@ -5,13 +5,64 @@ import { safaris } from "../data/lib";
 import { montserrat, manrope } from "../fonts";
 import Link from "next/link";
 import { useState } from "react";
+import { bookExperience } from "../helpers/bookExperience";
+import FeedbackModal from '../components/FeedbackModal';
 
 export default function BookPage() {
-  const [custom, setCustom] = useState(false);
-  const [customName, setCustomName] = useState("");
+
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    special_requests: "",
+    custom_destination_name: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const [loading, setLoading] = useState(false);
+  const [modal, setModal] = useState<{
+    type: "success" | "error" | "loading" | null;
+    message?: string;
+  }>({ type: null });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setModal({ type: "loading" });
+    setLoading(true);
+
+    const result = await bookExperience(formData);
+
+    if (!result.success) {
+      setModal({ type: "error", message: result.error });
+      setLoading(false);
+      return;
+    }
+
+    // Success
+    setModal({
+      type: "success",
+      message: "Your booking was successful. We’ll get back to you shortly!",
+    });
+
+    // Clear inputs
+    setFormData({
+      full_name: "",
+      email: "",
+      special_requests: "",
+      custom_destination_name: "",
+    });
+
+    setLoading(false);
+  };
 
   return (
     <main className="relative min-h-screen text-white overflow-hidden">
+      <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Booking"/>
       {/* Background */}
       <div className="absolute inset-0 bg-[url('/images/book-bg.jpg')] bg-cover bg-center brightness-75" />
       <div className="absolute inset-0 bg-black backdrop-blur-sm" />
@@ -96,10 +147,7 @@ export default function BookPage() {
           </p>
 
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setCustom(true);
-            }}
+            onSubmit={handleSubmit}
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             <div className="md:col-span-2">
@@ -107,8 +155,9 @@ export default function BookPage() {
               <input
                 type="text"
                 required
-                value={customName}
-                onChange={(e) => setCustomName(e.target.value)}
+                name="custom_destination_name"
+                value={formData.custom_destination_name}
+                onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="e.g., Serengeti Adventure"
               />
@@ -121,6 +170,9 @@ export default function BookPage() {
                 required
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="Your name"
+                name = "full_name"
+                value={formData.full_name}
+                onChange={handleChange}
               />
             </div>
 
@@ -129,6 +181,9 @@ export default function BookPage() {
               <input
                 type="email"
                 required
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
                 placeholder="you@example.com"
               />
@@ -140,6 +195,9 @@ export default function BookPage() {
                 rows={4}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2] resize-none"
                 placeholder="Describe your ideal adventure..."
+                name="special_requests"
+                value={formData.special_requests}
+                onChange={handleChange}
               ></textarea>
             </div>
 
@@ -152,19 +210,6 @@ export default function BookPage() {
               </button>
             </div>
           </form>
-
-          {custom && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="mt-8 p-6 bg-[#DCCAB2] border border-[#DCCAB2]-400/30 rounded-2xl text-center"
-            >
-              <p className={`text-[#DCCAB2] font-medium ${manrope.className}`}>
-                Your request for “{customName || "Custom Safari"}” has been received!  
-                Our team will contact you soon to plan your journey.
-              </p>
-            </motion.div>
-          )}
         </motion.div>
       </section>
     </main>

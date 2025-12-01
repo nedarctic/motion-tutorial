@@ -24,7 +24,7 @@ export default function SafariDetailPage() {
   }
 
   return (
-    <main className={`${manrope.className} h-screen relative text-white`}>
+    <main className={`${manrope.className} min-h-screen relative text-white`}>
       {/* Hero Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center filter brightness-75"
@@ -33,7 +33,7 @@ export default function SafariDetailPage() {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 pt-40">
+      <section className="relative pb-20 z-10 max-w-6xl mx-auto px-6 md:px-12 pt-40">
         {/* Back Button */}
         <button
           onClick={() => router.back()}

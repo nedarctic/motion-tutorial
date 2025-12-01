@@ -125,7 +125,7 @@ export default function ContactPage() {
             <div className="space-y-8">
               {[
                 { icon: Phone, label: "Phone / WhatsApp", value: "+254 714 270 768" },
-                { icon: Mail, label: "Email", value: "ray@curatedbyray.com" },
+                { icon: Mail, label: "Email", value: "bookings@curatedbyray.com" },
                 { icon: MapPin, label: "Based in", value: "Nairobi, Kenya" },
                 { icon: Clock, label: "Response Time", value: "Within 24 hours" },
               ].map((item, i) => (

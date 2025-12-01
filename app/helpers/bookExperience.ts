@@ -7,6 +7,7 @@ export async function bookExperience(data: {
   phone?: string;
   travel_date?: string;
   special_requests?: string;
+  custom_destination_name?: string;
 }) {
   try {
     const res = await fetch(messageUrl, {
