@@ -81,7 +81,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
                   animate={{ clipPath: "inset(0% 0 0 0)" }}
                   exit={{ clipPath: "inset(0 0 100% 0)" }}
                   transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`${playfair.className} absolute bottom-80 text-6xl sm:text-7xl text-[#E8D9C2]`}
+                  className={`${playfair.className} absolute sm:bottom-80 bottom-100 text-6xl sm:text-7xl text-[#E8D9C2]`}
                   
                 >
                   {image.text}
@@ -91,7 +91,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1, duration: 1.4, ease: "easeOut" }}
-                  className="mt-8 absolute bottom-60 md:mt-12 space-y-5"
+                  className="mt-8 absolute sm:bottom:60 bottom-80 md:mt-12 space-y-5"
                 >
                   <p className={`${pacifico.className} text-3xl md:text-5xl lg:text-6xl text-[#E8D9C2]/85 italic`}>
                     by Ray

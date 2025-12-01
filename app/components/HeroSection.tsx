@@ -108,7 +108,7 @@ export default function HeroSection() {
                             onClick={nextImage}
                             disabled={finished || bgIndex >= images.length - 1}
                             className={`
-                                absolute left-8 sm:left-16 lg:left-28 bottom-8 lg:bottom-10 
+                                absolute left-8 sm:left-16 lg:left-28 sm:bottom-25 bottom-45 lg:bottom-10 
                                 w-16 h-16 sm:w-20 sm:h-20 
                                 rounded-full 
                                 bg-black/40 backdrop-blur-sm border-2 border-[#DCCAB2]/60
@@ -129,13 +129,13 @@ export default function HeroSection() {
 
                         {/* foreground carousel */}
 
-                        <div className="absolute left-1/2 bottom-25 flex justify-center">
+                        <div className="absolute left-1/2 sm:bottom-25 bottom-45 flex justify-center">
                             <ForegroundCarousel images={images} currentIndex={carouselIndex} />
                         </div>
 
                         {/* Image counter */}
 
-                        <div className="absolute right-10 sm:right-20 bottom-10 flex flex-col items-center gap-4 z-30">
+                        <div className="absolute right-10 sm:right-20 bottom-30 sm:bottom-10 flex flex-col items-center gap-4 z-30">
                             <div className={`${manrope.className} text-white flex items-baseline gap-2`}>
                                 <span className="text-4xl text-[#DCCAB2] md:text-4xl font-extrabold leading-none">
                                     {String(bgIndex + 1).padStart(2, "0")}
