@@ -36,7 +36,7 @@ export default function BookTripPage() {
 
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState<{
-    type: "success" | "error" | null;
+    type: "success" | "error" | "loading" | null;
     message?: string;
   }>({ type: null });
 
@@ -49,7 +49,7 @@ export default function BookTripPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setModal({ type: null });
+    setModal({ type: "loading" });
     setLoading(true);
 
     const result = await bookExperience(formData);
@@ -88,6 +88,7 @@ export default function BookTripPage() {
 
   return (
     <main className="relative min-h-screen text-white overflow-hidden">
+      <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Booking"/>
       {/* Hero background */}
       <div
         className="absolute inset-0 bg-cover bg-center brightness-75"
@@ -204,7 +205,7 @@ export default function BookTripPage() {
               Submit Booking Request
             </button>
           </div>
-          <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Booking"/>
+          
         </motion.form>
       </section>
     </main>

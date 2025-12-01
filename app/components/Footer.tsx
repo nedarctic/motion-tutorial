@@ -31,12 +31,12 @@ export default function Footer() {
   const quickLinks = ["Home", "About", "Safaris", "Book a Trip"];
 
   const [loading, setLoading] = useState(false);
-  const [modal, setModal] = useState<{ type: "success" | "error" | null; message?: string }>({ type: null });
+  const [modal, setModal] = useState<{ type: "success" | "error" | "loading" | null; message?: string }>({ type: null });
 
   const handleSubscription = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setModal({ type: null });
+    setModal({ type: "loading" });
 
     if (!email.trim()) {
       return setModal({ type: "error", message: "Please enter your email." });

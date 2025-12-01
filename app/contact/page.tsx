@@ -20,7 +20,7 @@ export default function ContactPage() {
 
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState<{
-    type: "success" | "error" | null;
+    type: "success" | "error"| "loading" | null;
     message?: string;
   }>({ type: null });
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setModal({ type: null });
+    setModal({ type: "loading" });
     setLoading(true);
 
     const result = await sendMessage(formData);
@@ -65,7 +65,8 @@ export default function ContactPage() {
   return (
     <main className={`${manrope.className} min-h-screen bg-black text-white overflow-hidden`}>
 
-
+      <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Send Message"/>
+      
       {/* Hero */}
       <section className="relative h-screen flex items-center justify-center text-center px-6">
         <Image
@@ -172,7 +173,7 @@ export default function ContactPage() {
             <h3 className={`${montserrat.className} text-2xl font-semibold text-[#DCCAB2] mb-8`}>
               Start Your Journey Today
             </h3>
-            <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Send Message"/>
+            
             <form onSubmit={handleSubmit} className="space-y-7">
               <input
                 type="text"
