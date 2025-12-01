@@ -102,7 +102,7 @@ export default function HeroSection() {
     return (
         <section
             ref={heroRef}
-            className="relative h-screen overflow-hidden bg-black text-white flex flex-col items-center justify-center"
+            className="relative h-screen lg:min-h-[600px] lg:max-h-[800px] overflow-hidden bg-black text-white flex flex-col items-center justify-center"
         >
             {/* Background + Foreground + UI grouped for fade-out */}
             <AnimatePresence mode="wait">
@@ -117,7 +117,7 @@ export default function HeroSection() {
                         <BackgroundImage key={images[bgIndex].src} image={images[bgIndex]} />
 
                         {/* Foreground Carousel */}
-                        <div className="absolute left-1/2 bottom-40 flex justify-center">
+                        <div className="absolute left-1/2 bottom-10 flex justify-center">
                             <ForegroundCarousel images={images} currentIndex={carouselIndex} />
                         </div>
 

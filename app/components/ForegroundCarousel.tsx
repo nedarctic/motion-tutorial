@@ -12,49 +12,48 @@ export default function ForegroundCarousel({
 }) {
   const controls = useAnimation();
   const total = images.length;
-  const width = 256 + 16; // width + gap
 
-  // duplicate for trailing illusion
+  const desktopWidth = 256 + 16;
+  const mobileWidth = 160 + 12;
+
+  const width =
+    typeof window !== "undefined" && window.innerWidth < 768
+      ? mobileWidth
+      : desktopWidth;
+
   const visibleImages = [...images, ...images];
 
-  // ✅ Set correct initial position on mount
   useEffect(() => {
     controls.set({ x: -(currentIndex * width) });
-  }, []); // run once
+  }, []);
 
   useEffect(() => {
-    const atLoopBoundary = currentIndex === total;
+    const atLoop = currentIndex === total;
+    const targetX = -(currentIndex * width);
 
-    if (atLoopBoundary) {
-      const targetX = -(currentIndex * width);
+    if (atLoop) {
       controls
-        .start({
-          x: targetX,
-          transition: { type: "tween", duration: 0.8, ease: "easeInOut" },
-        })
-        .then(() => {
-          controls.set({ x: 0 });
-        });
+        .start({ x: targetX, transition: { type: "tween", duration: 0.6 } })
+        .then(() => controls.set({ x: 0 }));
     } else {
-      const targetX = -(currentIndex * width);
       controls.start({
         x: targetX,
-        transition: { type: "tween", duration: 0.8, ease: "easeInOut" },
+        transition: { type: "tween", duration: 0.6 },
       });
     }
   }, [currentIndex, controls, total, width]);
 
   return (
-    <div className="overflow-hidden w-3/4">
-      <motion.div
-        className="flex gap-4"
-        animate={controls}
-        initial={false} // ✅ Prevent Framer from applying its default "from 0" animation
-      >
+    <div className="overflow-hidden w-full sm:w-3/4">
+      <motion.div className="flex gap-3 md:gap-4" animate={controls} initial={false}>
         {visibleImages.map((img, i) => (
           <div
             key={`${img.src}-${i}`}
-            className="w-64 h-64 bg-cover bg-center rounded-xl shadow-lg shrink-0"
+            className="
+              shrink-0 rounded-lg shadow-lg bg-cover bg-center
+              w-40 h-40
+              md:w-64 md:h-64
+            "
             style={{ backgroundImage: `url(${img.src})` }}
           />
         ))}

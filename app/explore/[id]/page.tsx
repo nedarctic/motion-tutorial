@@ -24,7 +24,7 @@ export default function SafariDetailPage() {
   }
 
   return (
-    <main className={`${manrope.className} min-h-screen relative text-white`}>
+    <main className={`${manrope.className} h-screen relative text-white`}>
       {/* Hero Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center filter brightness-75"
@@ -32,16 +32,16 @@ export default function SafariDetailPage() {
       />
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* Back Button */}
-      <button
-        onClick={() => router.back()}
-        className="absolute top-8 left-8 w-12 h-12 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition z-20"
-      >
-        <AiOutlineArrowLeft className="text-white w-6 h-6" />
-      </button>
-
       {/* Content */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-32">
+      <section className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 pt-40">
+        {/* Back Button */}
+        <button
+          onClick={() => router.back()}
+          className="mb-16 w-12 h-12 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition z-20"
+        >
+          <AiOutlineArrowLeft className="text-white w-6 h-6" />
+        </button>
+
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

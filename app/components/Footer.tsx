@@ -78,7 +78,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative min-h-[80vh] flex flex-col justify-center items-center text-white py-24 px-6 md:px-20 overflow-hidden bg-black bg-linear-to-t from-[#63581F] via-black/30 to-black/70">
+    <footer className="relative min-h-[600px] flex flex-col justify-center items-center text-white py-24 px-6 md:px-20 overflow-hidden bg-black bg-linear-to-t from-[#63581F] via-black/30 to-black/70">
       {/* Distant backdrop with parallax */}
       <div
         ref={backdropRef}

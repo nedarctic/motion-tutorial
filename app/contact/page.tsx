@@ -68,7 +68,7 @@ export default function ContactPage() {
       <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Send Message"/>
       
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center text-center px-6">
+      <section className="relative h-screen lg:min-h-[600px] lg:max-h-[800px] flex items-center justify-center text-center px-6">
         <Image
           src="/contact-hero.jpeg"
           alt="Kenya landscape"

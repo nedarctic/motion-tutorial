@@ -7,7 +7,7 @@ import { safaris } from "../data/lib";
 import Link from "next/link";
 import { useSearch } from "../context/SearchContext";
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 16;
 
 export default function SafarisExplorePage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,9 +33,9 @@ export default function SafarisExplorePage() {
   const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
   return (
-    <main className={`${manrope.className} min-h-screen bg-black px-6 md:px-12 py-20`}>
+    <main className={`${manrope.className} lg:min-h-screen bg-black px-6 md:px-12 py-20`}>
       {/* Page Intro & Search */}
-      <section className="text-center mb-16 relative z-0 max-w-4xl mx-auto">
+      <section className="text-center pt-16 mb-16 relative z-0 max-w-4xl mx-auto">
         <h1 className="text-5xl sm:text-6xl font-extrabold text-zinc-50 dark:text-white">
           Explore <span className="text-[#DCCAB2] dark:text-[#DCCAB2]">Safaris</span>
         </h1>

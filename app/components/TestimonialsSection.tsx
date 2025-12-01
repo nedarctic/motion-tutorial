@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative w-full py-28 overflow-hidden bg-linear-to-b from-black via-zinc-900 to-black">
+    <section className="relative lg:min-h-[600px] w-full overflow-hidden bg-linear-to-b from-black via-zinc-900 to-black">
       {/* Soft ambient backdrop
       <div
         className="absolute inset-0 opacity-40 bg-[url('/kenya9.jpeg')] bg-cover bg-center blur-2xl"

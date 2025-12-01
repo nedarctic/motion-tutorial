@@ -83,7 +83,7 @@ export default function ExperiencesPage() {
   return (
     <main className={`${manrope.className} min-h-screen bg-black text-white overflow-hidden`}>
       {/* Hero Section */}
-      <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
+      <section className="relative h-screen lg:min-h-[600px] lg:max-h-[800px] flex flex-col items-center justify-center text-center px-6">
         <Image
           src="/hero-experience.jpeg"
           alt="Kenyan travel experience"

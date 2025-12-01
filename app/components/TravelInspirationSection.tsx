@@ -9,7 +9,7 @@ import { travelVideos } from "../data/lib";
 export default function TravelInspirationSection() {
   return (
     <section
-      className="relative w-full min-h-screen flex flex-col justify-center items-center text-white overflow-hidden"
+      className="relative w-full min-h-screen lg:min-h-[600px] flex flex-col justify-center items-center text-white overflow-hidden"
       id="travel-inspiration"
     >
       {/* Background */}

@@ -41,9 +41,9 @@ export default function GalleryPage() {
   return (
     <main className={`${manrope.className} min-h-screen bg-black text-white overflow-x-hidden`}>
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center text-center">
+      <section className="relative h-screen lg:min-h-[600px] lg:max-h-[800px] flex items-center justify-center text-center">
         <Image
-          src="/hero-gallery.jpeg" // Epic wide shot — e.g., endless savanna with animals at sunset
+          src="/hero-gallery.jpeg"
           alt="Kenya's soul in frames"
           fill
           className="object-cover brightness-[0.6]"

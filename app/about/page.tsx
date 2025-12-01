@@ -7,7 +7,7 @@ export default function AboutPage() {
   return (
     <main className="relative min-h-screen text-black overflow-hidden bg-black">
       {/* Section 1: Hero Banner */}
-      <section className="relative h-[85vh] w-full flex flex-col items-center justify-center bg-linear-to-b from-[#63581F] via-black/40 to-black/80">
+      <section className="relative h-screen lg:min-h-[600px] lg:max-h-[800px] w-full flex flex-col items-center justify-center bg-linear-to-b from-[#63581F] via-black/40 to-black/80">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

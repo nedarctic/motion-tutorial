@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { montserrat, manrope } from "../fonts";
+import { montserrat, manrope, satisfy } from "../fonts";
 import { FaCalendarAlt, FaUser, FaClock, FaTag } from "react-icons/fa";
 import { blogPosts } from "../data/lib";
 
@@ -10,30 +10,33 @@ export default function BlogPage() {
   return (
     <main className="relative min-h-screen bg-black text-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[70vh] md:h-[80vh] flex items-center justify-center bg-linear-to-b from-[#63581F]/40 via-black/70 to-black">
-        <div className="absolute inset-0 -z-10">
-          <div
-            className="w-full h-full bg-cover bg-center opacity-40"
-            style={{ backgroundImage: "url('/hero-blog.jpeg')" }}
-          />
-        </div>
+      <section className="relative h-screen lg:min-h-[600px] lg:max-h-[800px] flex flex-col items-center justify-center text-center px-6">
+        <Image
+          src="/hero-blog.jpeg"
+          alt="Elephants on the savanna at sunset"
+          fill
+          className="object-cover brightness-[0.6]"
+          priority
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-transparent to-black/90" />
+
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="text-center px-6 max-w-4xl mx-auto z-10"
+          className="relative z-10 max-w-5xl"
         >
-          <h1
-            className={`${montserrat.className} text-5xl md:text-7xl font-extrabold text-[#DCCAB2] mb-6 leading-tight`}
-          >
-            Stories from the Road
-          </h1>
-          <p
-            className={`${manrope.className} text-lg md:text-xl text-[#DCCAB2]/90 max-w-2xl mx-auto`}
-          >
-            Insider tales, travel secrets, and inspiration from Africa’s wild heart to the world’s most soul-stirring corners.
-          </p>
-        </motion.div>
+            <h1
+              className={`${satisfy.className} text-5xl md:text-7xl font-extrabold text-[#DCCAB2] mb-6 leading-tight`}
+            >
+              Stories from the Road
+            </h1>
+            <p
+              className={`${manrope.className} text-lg md:text-xl text-[#DCCAB2]/90 max-w-2xl mx-auto`}
+            >
+              Insider tales, travel secrets, and inspiration from Africa’s wild heart to the world’s most soul-stirring corners.
+            </p>
+          </motion.div>
       </section>
 
       {/* Blog Grid */}
@@ -104,7 +107,7 @@ export default function BlogPage() {
         </div> */}
       </section>
 
-      {/* Newsletter CTA */}
+      {/* Newsletter CTA
       <section className="relative bg-linear-to-t from-black to-zinc-950 py-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -132,7 +135,7 @@ export default function BlogPage() {
             </button>
           </form>
         </motion.div>
-      </section>
+      </section> */}
     </main>
   );
 }

@@ -8,7 +8,7 @@ const destinations = safaris.slice(0, 4); // Select first 4 safaris as destinati
 export const DestionationsCards = () => (
   <section
     id="next-section"
-    className={`${manrope.className} relative min-h-screen flex flex-col items-center py-20 px-8 md:px-16`}
+    className={`${manrope.className} relative min-h-screen lg:min-h-[600px] flex flex-col items-center py-20 px-8 md:px-16`}
   >
     {/* Distant, atmospheric backdrop */}
     <div className="absolute inset-0 -z-10">
