@@ -91,7 +91,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1, duration: 1.4, ease: "easeOut" }}
-                  className="mt-8 absolute sm:bottom:60 bottom-80 md:mt-12 space-y-5"
+                  className="mt-8 absolute sm:bottom-45 bottom-80 md:mt-12 space-y-5"
                 >
                   <p className={`${pacifico.className} text-3xl md:text-5xl lg:text-6xl text-[#E8D9C2]/85 italic`}>
                     by Ray

@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     shortcut: "/Pale Beige Logo.svg",
   },
   openGraph: {
-    title: "Curated by Ray – Luxury Boutique Travel Experiences",
+    title: "Curated by Ray – Thoughtfully Curated Travel Experiences",
     description:
       "Boutique travel experiences designed with intention, style, and heart from Africa’s wild treasures to the world’s hidden gems.",
     url: "https://www.curatedbyray.com",
     siteName: "Curated by Ray",
     images: [
       {
-        url: "/og.jpg",
+        url: "https://www.curatedbyray.com/og.jpg",
         width: 1200,
         height: 630,
         alt: "Curated by Ray – Luxury Travel",
@@ -54,12 +54,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Curated by Ray – Luxury Boutique Travel Experiences",
+    title: "Curated by Ray – Thoughtfully Curated Travel Experiences",
     description:
       "Discover exclusive, handpicked travel experiences. From Africa's wild treasures to the world's hidden gems, explore journeys designed with style, heart, and intention.",
     site: "@CuratedByRay",
     creator: "@CuratedByRay",
-    images: ["/og.jpg"],
+    images: ["https://www.curatedbyray.com/og.jpg"],
   },
 };
 
