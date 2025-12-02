@@ -81,7 +81,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
                   animate={{ clipPath: "inset(0% 0 0 0)" }}
                   exit={{ clipPath: "inset(0 0 100% 0)" }}
                   transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`${playfair.className} absolute sm:bottom-80 bottom-100 text-6xl sm:text-7xl text-[#E8D9C2]`}
+                  className={`${playfair.className} absolute sm:bottom-80 bottom-100 text-4xl pr-4 lg:pr-10 sm:text-7xl text-[#E8D9C2]`}
                   
                 >
                   {image.text}
