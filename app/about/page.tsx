@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { montserrat, manrope } from "../fonts";
+import { TeamMemberCard } from "../components/TeamMemberCard";
 
 export default function AboutPage() {
   return (
@@ -129,29 +130,25 @@ export default function AboutPage() {
               name: "Rachel Kienjeku",
               role: "Founder & Lead Curator",
               img: "/Rachel Kienjeku.jpeg",
-              bio: `Rachel Kienjeku is a seasoned hotelier whose career has been built on the front lines of hospitality. With years of experience in front office operations, reservations, guest relations, and general hotel management, she developed a rare understanding of what truly defines an exceptional travel experience: care, intention, comfort, and seamless coordination.
-
-From welcoming first time travelers to resolving complex guest needs with calm precision, Rachel mastered the art of making people feel seen, supported, and at ease. Her talent wasn’t just operational it was deeply human.
-
-Inspired by the countless guests who told her she made their journey feel effortless, Rachel founded Curated by Ray. Today, she uses her hospitality expertise to design travel experiences that carry the same warmth and professionalism she perfected in the hotel world. With a hotelier’s eye for detail and a curator’s love for exploration, Rachel creates journeys that feel personal, smooth, and unforgettable.`,
+              slug: "rachel-kienjeku",
             },
             {
               name: "Caroline Wainaina",
               role: "Travel Experience Curator",
               img: "/Caroline Wainaina.jpg",
-              bio: "Ensures every guest feels at home from the first inquiry to the final farewell.",
+              slug: "caroline-wainaina",
             },
             {
               name: "Esther Ndung'u",
               role: "Reservations & Guest Relations",
               img: "/Esther Ndung'u.jpg",
-              bio: "Master of Zanzibar’s tides and Kenya’s savannas — your guide to authentic local immersion.",
+              slug: "esther-ndungu",
             },
             {
               name: "Dancun Mengich",
-              role: "Operations Coordinator",
+              role: "Operations Coordinator",
               img: "/Dancun Mengich.jpeg",
-              bio: "Master of Zanzibar’s tides and Kenya’s savannas — your guide to authentic local immersion.",
+              slug: "dancun-mengich",
             },
           ].map((member, idx) => (
             <motion.div
@@ -171,10 +168,23 @@ Inspired by the countless guests who told her she made their journey feel effort
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
               </div>
+
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className={`${montserrat.className} text-xl font-bold`}>{member.name}</h3>
-                <p className={`${manrope.className} text-sm opacity-90`}>{member.role}</p>
-                <p className={`${manrope.className} text-sm mt-2 opacity-80`}>{member.bio}</p>
+                <h3 className={`${montserrat.className} text-xl font-bold`}>
+                  {member.name}
+                </h3>
+                <p className={`${manrope.className} text-sm opacity-90`}>
+                  {member.role}
+                </p>
+
+                {/* Read Bio Button */}
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  href={`/team/${member.slug}`}
+                  className={`${manrope.className} inline-block mt-4 px-5 py-2 rounded-full text-sm font-semibold bg-[#DCCAB2] text-black shadow-md hover:bg-[#b69a77] transition-all`}
+                >
+                  Read Bio
+                </motion.a>
               </div>
             </motion.div>
           ))}
