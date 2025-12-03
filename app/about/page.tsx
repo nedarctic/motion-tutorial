@@ -128,7 +128,7 @@ export default function AboutPage() {
             {
               name: "Rachel Kienjeku",
               role: "Founder & Lead Curator",
-              img: "/team-ray.jpeg",
+              img: "/Rachel Kienjeku.jpeg",
               bio: `Rachel Kienjeku is a seasoned hotelier whose career has been built on the front lines of hospitality. With years of experience in front office operations, reservations, guest relations, and general hotel management, she developed a rare understanding of what truly defines an exceptional travel experience: care, intention, comfort, and seamless coordination.
 
 From welcoming first time travelers to resolving complex guest needs with calm precision, Rachel mastered the art of making people feel seen, supported, and at ease. Her talent wasn’t just operational it was deeply human.
@@ -138,7 +138,7 @@ Inspired by the countless guests who told her she made their journey feel effort
             {
               name: "Caroline Wainaina",
               role: "Travel Experience Curator",
-              img: "/team-guest.jpeg",
+              img: "/Caroline Wainaina.jpg",
               bio: "Ensures every guest feels at home from the first inquiry to the final farewell.",
             },
             {
@@ -150,7 +150,7 @@ Inspired by the countless guests who told her she made their journey feel effort
             {
               name: "Dancun Mengich",
               role: "Operations Coordinator",
-              img: "/team-expert.jpeg",
+              img: "/Dancun Mengich.jpeg",
               bio: "Master of Zanzibar’s tides and Kenya’s savannas — your guide to authentic local immersion.",
             },
           ].map((member, idx) => (
