@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-  manifest: "/site.webmanifest",
+  manifest: "/site.webmanifest?v=2",
   openGraph: {
     title: "Curated by Ray – Thoughtfully Curated Travel Experiences",
     description:

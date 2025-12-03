@@ -235,7 +235,7 @@ export default function AboutClient() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <motion.a
               whileHover={{ scale: 1.05 }}
-              href="/destinations"
+              href="/safaris"
               className={`${manrope.className} bg-[#D4C49A] text-[#20190E] font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#BFA878] transition-all`}
             >
               Explore Destinations

@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Stone Town’s winding alleys, spice farms at dawn, and secret swimming spots the guidebooks miss.",
     author: "Esther N.",
     authorTitle: "Guest Relations & Island Specialist",
-    authorImage: "/Esther Ndung'u.jpg",
+    authorImage: "/Esther.jpg",
     date: "October 28, 2025",
     readTime: "10 min read",
     category: "Islands",
@@ -195,7 +195,7 @@ export const team: TeamMember[] = [
   {
     name: "Esther Ndung'u",
     role: "Reservations & Guest Relations",
-    img: "/Esther Ndung'u.jpg",
+    img: "/Esther.jpg",
     slug: "esther-ndungu",
     bio: "Esther is your bridge to authentic local immersion, bringing deep knowledge of Zanzibar’s rhythms, Kenya’s savannas, and the human side of travel hospitality.",
   },
