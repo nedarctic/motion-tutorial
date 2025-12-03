@@ -126,20 +126,30 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
-              name: "Ray",
-              role: "Founder & Lead Travel Curator",
+              name: "Rachel Kienjeku",
+              role: "Founder & Lead Curator",
               img: "/team-ray.jpeg",
-              bio: "Visionary behind every curated journey, with over a decade of exploring Africa’s hidden paths.",
+              bio: `Rachel Kienjeku is a seasoned hotelier whose career has been built on the front lines of hospitality. With years of experience in front office operations, reservations, guest relations, and general hotel management, she developed a rare understanding of what truly defines an exceptional travel experience: care, intention, comfort, and seamless coordination.
+
+From welcoming first time travelers to resolving complex guest needs with calm precision, Rachel mastered the art of making people feel seen, supported, and at ease. Her talent wasn’t just operational it was deeply human.
+
+Inspired by the countless guests who told her she made their journey feel effortless, Rachel founded Curated by Ray. Today, she uses her hospitality expertise to design travel experiences that carry the same warmth and professionalism she perfected in the hotel world. With a hotelier’s eye for detail and a curator’s love for exploration, Rachel creates journeys that feel personal, smooth, and unforgettable.`,
             },
             {
-              name: "Amina",
-              role: "Guest Relations Manager",
+              name: "Caroline Wainaina",
+              role: "Travel Experience Curator",
               img: "/team-guest.jpeg",
               bio: "Ensures every guest feels at home from the first inquiry to the final farewell.",
             },
             {
-              name: "Juma",
-              role: "Destination Expert, East Africa & Islands",
+              name: "Esther Ndung'u",
+              role: "Reservations & Guest Relations",
+              img: "/Esther Ndung'u.jpg",
+              bio: "Master of Zanzibar’s tides and Kenya’s savannas — your guide to authentic local immersion.",
+            },
+            {
+              name: "Dancun Mengich",
+              role: "Operations Coordinator",
               img: "/team-expert.jpeg",
               bio: "Master of Zanzibar’s tides and Kenya’s savannas — your guide to authentic local immersion.",
             },
