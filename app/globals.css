@@ -24,3 +24,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  @media (max-width: 640px) {
+
+    /* Headings */
+    .text-8xl { font-size: 3.5rem !important; }
+    .text-7xl { font-size: 3rem !important; }
+    .text-6xl { font-size: 2.5rem !important; }
+    .text-5xl { font-size: 2rem !important; }
+    .text-4xl { font-size: 1.7rem !important; }
+    .text-3xl { font-size: 1.45rem !important; }
+    .text-2xl { font-size: 1.2rem !important; }
+
+    /* Body text */
+    .text-xl { font-size: 1rem !important; }
+    .text-lg { font-size: 0.9rem !important; }
+    .text-base { font-size: 0.85rem !important; }
+    .text-sm { font-size: 0.75rem !important; }
+
+    /* Icons in Contact Info */
+    .w-7, .h-7 { width: 1.25rem !important; height: 1.25rem !important; }
+
+    /* CTA and form button text */
+    .text-lg { font-size: 1rem !important; }
+  }
+}

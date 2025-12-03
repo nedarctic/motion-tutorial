@@ -92,6 +92,7 @@ export default function ContactClient() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="px-4 mx-auto"
             >
               <h2 className={`${satisfy.className} text-center text-5xl md:text-6xl text-[#D4C49A] mb-8`}>
                 Get in Touch
@@ -102,7 +103,7 @@ export default function ContactClient() {
               </p>
             </motion.div>
 
-            <div className="space-y-8">
+            <div className="space-y-8 flex flex-col items-start shrink justify-center w-11/12 sm:full">
               {[
                 { icon: Phone, label: "Phone / WhatsApp", value: "+254 714 270 768" },
                 { icon: Mail, label: "Email", value: "bookings@curatedbyray.com" },
@@ -122,7 +123,7 @@ export default function ContactClient() {
                   </div>
                   <div>
                     <p className="text-[#C3B091]/70 text-sm">{item.label}</p>
-                    <p className={`${montserrat.className} text-lg font-medium text-white`}>
+                    <p className={`${montserrat.className} text-sm font-medium text-white shrink`}>
                       {item.value}
                     </p>
                   </div>
@@ -147,13 +148,13 @@ export default function ContactClient() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-[#1A140B]/50 backdrop-blur-2xl border border-[#C3B091]/10 rounded-3xl p-10 md:p-12 shadow-2xl"
+            className="bg-[#1A140B]/50 mx-auto backdrop-blur-2xl border border-[#C3B091]/10 rounded-3xl p-6 md:p-12 shadow-2xl w-11/12 sm:full"
           >
-            <h3 className={`${montserrat.className} text-2xl font-semibold text-[#D4C49A] mb-8`}>
+            <h3 className={`${montserrat.className} mx-auto text-2xl font-semibold text-[#D4C49A] mb-8`}>
               Start Your Journey Today
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-7">
+            <form onSubmit={handleSubmit} className="mx-auto space-y-7 w-11/12">
               {["name","email","phone","travel_dates"].map((field,i)=>(
                 <input
                   key={i}
@@ -195,7 +196,7 @@ export default function ContactClient() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className={`${satisfy.className} text-4xl md:text-5xl text-[#D4C49A]`}
+          className={`${satisfy.className} text-4xl md:text-5xl text-[#D4C49A] shrink px-4`}
         >
           Your Curated chapter starts here.
         </motion.p>

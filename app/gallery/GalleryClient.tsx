@@ -81,7 +81,7 @@ export default function GalleryClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.05 }}
-              className="relative group mb-6 break-inside-avoid overflow-hidden rounded-2xl shadow-lg cursor-pointer"
+              className="relative group mb-6 break-inside-avoid overflow-hidden rounded-lg shadow-lg cursor-pointer"
               onClick={() => setSelectedImage(image.src)}
             >
               <Image
@@ -91,7 +91,7 @@ export default function GalleryClient() {
                 height={1200}
                 className="w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
                 <p className={`${montserrat.className} text-[#D4C49A] text-lg font-medium`}>
                   {image.alt}
                 </p>
