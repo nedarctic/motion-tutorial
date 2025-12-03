@@ -13,7 +13,7 @@ export default function FloatingHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const {query, setQuery} = useSearch();
+  const { query, setQuery } = useSearch();
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -32,9 +32,7 @@ export default function FloatingHeader() {
   };
 
   return (
-    <header
-      className={`${manrope.className} fixed top-0 left-0 right-0 z-50 bg-[#DCCAB2] backdrop-blur-md shadow-md`}
-    >
+    <header className={`${manrope.className} fixed top-0 left-0 right-0 z-50 bg-[#D4C49A] backdrop-blur-md shadow-md`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
@@ -49,8 +47,11 @@ export default function FloatingHeader() {
             <Link
               key={item.path}
               href={item.path}
-              className={`font-semibold text-sm transition-colors ${pathname === item.path ? "text-[#63581F]" : "text-black"
-                }`}
+              className={`font-semibold text-sm transition-colors ${
+                pathname === item.path
+                  ? "text-[#6E5B2C]"
+                  : "text-[#20190E] hover:text-[#BFA878]"
+              }`}
             >
               {item.name}
             </Link>
@@ -60,23 +61,18 @@ export default function FloatingHeader() {
         {/* Desktop Search */}
         <form
           onSubmit={handleSearch}
-          className="hidden md:flex items-center gap-2 bg-white/30 backdrop-blur-sm rounded-lg px-3 py-2 border border-[#63581F]/20"
+          className="hidden md:flex items-center gap-2 bg-white/30 backdrop-blur-sm rounded-lg px-3 py-2 border border-[#C3B091]/20"
         >
           <input
             type="text"
             placeholder="Search safaris..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="bg-transparent text-black text-sm placeholder-black/60 outline-none w-40 lg:w-48"
+            className="bg-transparent text-[#20190E] text-sm placeholder-[#63581F]/60 outline-none w-40 lg:w-48"
           />
-          <button type="submit" className="text-black/70 hover:text-black transition-colors">
+          <button type="submit" className="text-[#20190E]/70 hover:text-[#20190E] transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
         </form>
@@ -84,18 +80,18 @@ export default function FloatingHeader() {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="lg:hidden w-10 h-10 flex items-center justify-center text-black/80 hover:text-black transition-colors"
+          className="lg:hidden w-10 h-10 flex items-center justify-center text-[#20190E]/80 hover:text-[#20190E] transition-colors"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* MOBILE MENU - FLOATING */}
+      {/* MOBILE MENU */}
       {isMenuOpen && (
         <div
           id="modal-overlay"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 h-screen w-screen"
+          className="fixed h-screen w-screen inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
           onClick={(e) => {
             if ((e.target as HTMLElement).id === "modal-overlay") setIsMenuOpen(false);
           }}
@@ -105,7 +101,7 @@ export default function FloatingHeader() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.25 }}
-            className="bg-white rounded-xl shadow-xl w-4/5 max-w-sm p-6 flex flex-col items-center justify-center space-y-4"
+            className="bg-[#D4C49A] rounded-xl shadow-xl w-4/5 max-w-sm p-6 flex flex-col items-center justify-center space-y-4"
             onClick={(e) => e.stopPropagation()}
           >
             {menuItems.map((item) => (
@@ -115,8 +111,8 @@ export default function FloatingHeader() {
                 onClick={() => setIsMenuOpen(false)}
                 className={`w-full text-center py-3 px-4 rounded-lg font-semibold text-lg transition-colors
                   ${pathname === item.path
-                    ? "bg-[#63581F] text-white"
-                    : "bg-[#DCCAB2] hover:bg-[#F0E2C2]/50 text-black"
+                    ? "bg-[#6E5B2C] text-white"
+                    : "bg-[#D4C49A] hover:bg-[#BFA878] text-[#20190E]"
                   }`}
               >
                 {item.name}
@@ -125,22 +121,17 @@ export default function FloatingHeader() {
 
             {/* Mobile Search */}
             <form onSubmit={handleSearch} className="mt-4 w-full">
-              <div className="flex items-center gap-2 bg-white/40 backdrop-blur-sm rounded-lg px-3 py-2 border border-[#63581F]/20">
+              <div className="flex items-center gap-2 bg-white/30 backdrop-blur-sm rounded-lg px-3 py-2 border border-[#C3B091]/20">
                 <input
                   type="text"
                   placeholder="Search safaris..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="flex-1 bg-transparent text-black text-sm outline-none"
+                  className="flex-1 bg-transparent text-[#20190E] text-sm outline-none"
                 />
-                <button type="submit" className="text-black/70 hover:text-black">
+                <button type="submit" className="text-[#20190E]/70 hover:text-[#20190E]">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </button>
               </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { safaris } from "../../data/lib";
+import { safaris } from "../../data/safarisData";
 import { motion } from "framer-motion";
 import { montserrat, manrope } from "../../fonts";
 import { useMemo, useState } from "react";
@@ -18,12 +18,8 @@ export default function BookTripPage() {
   const safari = useMemo(() => safaris.find((s) => s.id === safariId), [safariId]);
 
   const handleBack = () => {
-    // Go back if there's navigation history, otherwise fallback to safaris page
-    if (window.history.length > 1) {
-      router.back();
-    } else {
-      router.push("/safaris");
-    }
+    if (window.history.length > 1) router.back();
+    else router.push("/safaris");
   };
 
   const [formData, setFormData] = useState({
@@ -34,53 +30,30 @@ export default function BookTripPage() {
     special_requests: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [modal, setModal] = useState<{
-    type: "success" | "error" | "loading" | null;
-    message?: string;
-  }>({ type: null });
+  const [modal, setModal] = useState<{ type: "success" | "error" | "loading" | null; message?: string }>({ type: null });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     setModal({ type: "loading" });
-    setLoading(true);
 
     const result = await bookExperience(formData);
 
     if (!result.success) {
       setModal({ type: "error", message: result.error });
-      setLoading(false);
       return;
     }
 
-    // Success
-    setModal({
-      type: "success",
-      message: "Your booking was successful. We’ll get back to you shortly!",
-    });
-
-    // Clear inputs
-    setFormData({
-      full_name: "",
-      email: "",
-      phone: "",
-      travel_date: "",
-      special_requests: "",
-    });
-
-    setLoading(false);
+    setModal({ type: "success", message: "Your booking was successful. We’ll get back to you shortly!" });
+    setFormData({ full_name: "", email: "", phone: "", travel_date: "", special_requests: "" });
   };
 
   if (!safari) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-black text-white">
+      <main className="min-h-screen flex items-center justify-center bg-[#20190E] text-white">
         <h1 className="text-2xl text-red-500">Safari not found</h1>
       </main>
     );
@@ -88,28 +61,30 @@ export default function BookTripPage() {
 
   return (
     <main className="relative min-h-screen text-white overflow-hidden">
-      <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Booking"/>
-      {/* Hero background */}
+      <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Booking" />
+
+      {/* Hero Background */}
       <div
         className="absolute inset-0 bg-cover bg-center brightness-75"
         style={{ backgroundImage: `url(${safari.src})` }}
       />
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-
-      {/* Back Button */}
-      <button
-        onClick={() => router.back()}
-        className="absolute top-8 left-8 w-12 h-12 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition z-20"
-      >
-        <AiOutlineArrowLeft className="text-white w-6 h-6" />
-      </button>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#6E5B2C]/70 via-[#2E2414]/70 to-[#20190E]/90 backdrop-blur-sm" />
 
       <section className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 py-32">
+
+        {/* Back Button */}
+        <button
+          onClick={handleBack}
+          className="my-6 w-12 h-12 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition z-20"
+        >
+          <AiOutlineArrowLeft className="text-white w-6 h-6" />
+        </button>
+
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-4xl md:text-5xl font-extrabold text-[#DCCAB2] mb-6`}
+          className={`${montserrat.className} text-4xl md:text-5xl font-extrabold text-[#D4C49A] mb-6`}
         >
           Book Your {safari.title} Experience
         </motion.h1>
@@ -118,7 +93,7 @@ export default function BookTripPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className={`text-lg md:text-xl text-white/80 mb-12 max-w-3xl ${manrope.className}`}
+          className={`text-lg md:text-xl text-[#C3B091] mb-12 max-w-3xl ${manrope.className}`}
         >
           Fill in your details below and our team will get in touch to help you
           plan your unforgettable journey to {safari.location}.
@@ -130,69 +105,38 @@ export default function BookTripPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-zinc-900/70 backdrop-blur-lg p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl"
+          className="bg-[#1A140B]/80 backdrop-blur-lg p-8 md:p-10 rounded-3xl border border-[#C3B091]/20 shadow-2xl"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm text-gray-300 mb-2">Full Name</label>
-              <input
-                type="text"
-                required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
-                placeholder="Your name"
-                value={formData.full_name}
-                name="full_name"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm text-gray-300 mb-2">Email Address</label>
-              <input
-                type="email"
-                required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
-                placeholder="you@example.com"
-                value={formData.email}
-                name="email"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm text-gray-300 mb-2">Phone Number</label>
-              <input
-                type="tel"
-                required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
-                placeholder="+254 700 000 000"
-                value={formData.phone}
-                name="phone"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm text-gray-300 mb-2">Preferred Travel Date</label>
-              <input
-                type="date"
-                required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
-                value={formData.travel_date}
-                name="travel_date"
-                onChange={handleChange}
-              />
-            </div>
+            {[
+              { label: "Full Name", name: "full_name", type: "text", placeholder: "Your name" },
+              { label: "Email Address", name: "email", type: "email", placeholder: "you@example.com" },
+              { label: "Phone Number", name: "phone", type: "tel", placeholder: "+254 700 000 000" },
+              { label: "Preferred Travel Date", name: "travel_date", type: "date", placeholder: "" },
+            ].map((field) => (
+              <div key={field.name}>
+                <label className="block text-sm text-[#C3B091] mb-2">{field.label}</label>
+                <input
+                  type={field.type}
+                  required
+                  name={field.name}
+                  value={formData[field.name as keyof typeof formData]}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  className="w-full px-4 py-3 rounded-xl bg-[#20190E]/50 text-white placeholder-[#C3B091] border border-[#C3B091]/20 focus:outline-none focus:border-[#D4C49A] transition"
+                />
+              </div>
+            ))}
 
             <div className="md:col-span-2">
-              <label className="block text-sm text-gray-300 mb-2">Special Requests</label>
+              <label className="block text-sm text-[#C3B091] mb-2">Special Requests</label>
               <textarea
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2] resize-none"
-                placeholder="Let us know your preferences..."
-                value={formData.special_requests}
                 name="special_requests"
+                value={formData.special_requests}
                 onChange={handleChange}
+                placeholder="Let us know your preferences..."
+                className="w-full px-4 py-3 rounded-xl bg-[#20190E]/50 text-white placeholder-[#C3B091] border border-[#C3B091]/20 focus:outline-none focus:border-[#D4C49A] resize-none transition"
               ></textarea>
             </div>
           </div>
@@ -200,12 +144,11 @@ export default function BookTripPage() {
           <div className="mt-10 flex justify-center">
             <button
               type="submit"
-              className="bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#DCCAB2]/90 transition-all"
+              className="bg-[#D4C49A] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#BFA878] transition-transform transform hover:scale-105"
             >
               Submit Booking Request
             </button>
           </div>
-          
         </motion.form>
       </section>
     </main>

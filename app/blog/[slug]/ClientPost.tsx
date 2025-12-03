@@ -1,4 +1,3 @@
-// app/blog/[slug]/ClientPost.tsx
 'use client';
 
 import Image from "next/image";
@@ -32,17 +31,17 @@ export default function ClientPost({ post }: Props) {
   const shareTitle = encodeURIComponent(post.title);
 
   return (
-    <main className="relative min-h-screen bg-black text-white">
+    <main className="relative min-h-screen bg-[#20190E] text-white">
       {/* Hero */}
-      <section className="relative h-[70vh] md:h-[85vh] overflow-hidden">
+      <section className="relative h-screen lg:min-h-[600px] lg:max-h-[800px] overflow-hidden">
         <Image
           src={post.image}
           alt={post.title}
           fill
           priority
-          className="object-cover brightness-70"
+          className="object-cover brightness-[0.6]"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#6E5B2C]/70 via-[#2E2414]/70 to-[#20190E]/90" />
 
         <div className="absolute bottom-0 left-0 right-0 pb-12 px-6 md:px-12 max-w-7xl mx-auto">
           <motion.div
@@ -50,16 +49,16 @@ export default function ClientPost({ post }: Props) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <span className="inline-block bg-[#DCCAB2] text-black px-4 py-1 rounded-full text-sm font-semibold mb-6">
+            <span className="inline-block bg-[#D4C49A] text-black px-4 py-1 rounded-full text-sm font-semibold mb-6">
               {post.category}
             </span>
             <h1
-              className={`${montserrat.className} text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#DCCAB2] max-w-5xl leading-tight`}
+              className={`${montserrat.className} text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#D4C49A] max-w-5xl leading-tight`}
             >
               {post.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-6 mt-8 text-[#DCCAB2]/80 text-sm md:text-base">
+            <div className="flex flex-wrap items-center gap-6 mt-8 text-[#C3B091]/80 text-sm md:text-base">
               <span className="flex items-center gap-2">
                 <FaUser /> {post.author}
               </span>
@@ -82,25 +81,25 @@ export default function ClientPost({ post }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className={`${manrope.className} prose prose-invert prose-lg max-w-none
-            prose-headings:${montserrat.className} prose-headings:font-bold prose-headings:text-[#DCCAB2]
-            prose-p:text-[#DCCAB2]/80 prose-p:leading-relaxed
+            prose-headings:${montserrat.className} prose-headings:font-bold prose-headings:text-[#D4C49A]
+            prose-p:text-[#C3B091]/80 prose-p:leading-relaxed
             prose-img:rounded-3xl prose-img:shadow-2xl prose-img:my-12
-            prose-blockquote:border-l-[#DCCAB2] prose-blockquote:text-[#DCCAB2]/90
-            prose-a:text-[#DCCAB2] hover:prose-a:underline`}
-          dangerouslySetInnerHTML={{ __html: post.content}}
+            prose-blockquote:border-l-[#D4C49A] prose-blockquote:text-[#C3B091]/90
+            prose-a:text-[#D4C49A] hover:prose-a:underline`}
+          dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-6 my-20">
           <Link
             href="/book"
-            className="bg-[#DCCAB2] text-black font-bold px-10 py-5 rounded-full text-center text-lg hover:bg-[#a78b66] transition shadow-xl"
+            className="bg-[#D4C49A] text-black font-bold px-10 py-5 rounded-full text-center text-lg hover:bg-[#BFA878] transition shadow-xl"
           >
             Plan My Escape
           </Link>
           <Link
             href="/safaris"
-            className="border-2 border-[#DCCAB2] text-[#DCCAB2] font-bold px-10 py-5 rounded-full text-center text-lg hover:bg-[#DCCAB2] hover:text-black transition"
+            className="border-2 border-[#D4C49A] text-[#D4C49A] font-bold px-10 py-5 rounded-full text-center text-lg hover:bg-[#D4C49A] hover:text-black transition"
           >
             Explore All Journeys
           </Link>
@@ -111,21 +110,22 @@ export default function ClientPost({ post }: Props) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-24 pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center gap-6"
+          className="mt-24 pt-12 border-t border-[#C3B091]/10 flex flex-col sm:flex-row items-center gap-6"
         >
-          <div className="relative w-20 h-20 rounded-full overflow-hidden ring-4 ring-[#DCCAB2]/30 flex-shrink-0">
+          <div className="relative w-20 h-20 rounded-full overflow-hidden ring-4 ring-[#D4C49A]/30 flex-shrink-0">
             <Image
               src={post.authorImage}
               alt={post.author}
-              fill
-              className="object-cover"
+              width={500}
+              height={600}
+              className="w-full h-auto object-contain"
             />
           </div>
           <div>
-            <p className={`${montserrat.className} text-xl font-bold text-[#DCCAB2]`}>
+            <p className={`${montserrat.className} text-xl font-bold text-[#D4C49A]`}>
               {post.author}
             </p>
-            <p className="text-[#DCCAB2]/70">
+            <p className="text-[#C3B091]/70">
               {post.title}
             </p>
           </div>
@@ -133,30 +133,37 @@ export default function ClientPost({ post }: Props) {
 
         {/* Social Share */}
         <div className="mt-16 flex flex-wrap items-center gap-4">
-          <span className="text-[#DCCAB2]/70">Share this story:</span>
+          <span className="text-[#C3B091]/70">Share this story:</span>
           <div className="flex gap-3">
-            <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#DCCAB2] hover:text-black transition flex items-center justify-center">
-              <FaFacebookF />
-            </a>
-            <a href={`https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`} target="_blank" rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#DCCAB2] hover:text-black transition flex items-center justify-center">
-              <FaTwitter />
-            </a>
-            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`} target="_blank" rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#DCCAB2] hover:text-black transition flex items-center justify-center">
-              <FaLinkedinIn />
-            </a>
-            <a href={`https://wa.me/?text=${shareTitle}%20${shareUrl}`} target="_blank" rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#DCCAB2] hover:text-black transition flex items-center justify-center">
-              <FaWhatsapp />
-            </a>
+            {[{
+              icon: <FaFacebookF />,
+              url: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`
+            }, {
+              icon: <FaTwitter />,
+              url: `https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`
+            }, {
+              icon: <FaLinkedinIn />,
+              url: `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`
+            }, {
+              icon: <FaWhatsapp />,
+              url: `https://wa.me/?text=${shareTitle}%20${shareUrl}`
+            }].map((s, i) => (
+              <a
+                key={i}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#D4C49A] hover:text-black transition flex items-center justify-center"
+              >
+                {s.icon}
+              </a>
+            ))}
           </div>
         </div>
 
         {/* Back Link */}
         <div className="mt-20">
-          <Link href="/blog" className="inline-flex items-center gap-3 text-[#DCCAB2] hover:text-white transition text-lg font-medium">
+          <Link href="/blog" className="inline-flex items-center gap-3 text-[#D4C49A] hover:text-white transition text-lg font-medium">
             <FaArrowLeft /> Back to all stories
           </Link>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { safaris } from "../data/lib";
+import { safaris } from "../data/safarisData";
 import { montserrat, manrope } from "../fonts";
 import Link from "next/link";
 import { useState } from "react";
@@ -9,7 +9,6 @@ import { bookExperience } from "../helpers/bookExperience";
 import FeedbackModal from '../components/FeedbackModal';
 
 export default function BookPage() {
-
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
@@ -24,10 +23,7 @@ export default function BookPage() {
   };
 
   const [loading, setLoading] = useState(false);
-  const [modal, setModal] = useState<{
-    type: "success" | "error" | "loading" | null;
-    message?: string;
-  }>({ type: null });
+  const [modal, setModal] = useState<{ type: "success" | "error" | "loading" | null; message?: string }>({ type: null });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,13 +39,8 @@ export default function BookPage() {
       return;
     }
 
-    // Success
-    setModal({
-      type: "success",
-      message: "Your booking was successful. We’ll get back to you shortly!",
-    });
+    setModal({ type: "success", message: "Your booking was successful. We’ll get back to you shortly!" });
 
-    // Clear inputs
     setFormData({
       full_name: "",
       email: "",
@@ -61,11 +52,12 @@ export default function BookPage() {
   };
 
   return (
-    <main className="relative min-h-screen text-white overflow-hidden">
+    <main className={`${manrope.className} relative min-h-screen text-white overflow-hidden bg-[#20190E]`}>
       <FeedbackModal modal={modal} setModal={setModal} pageUsedFor="Booking"/>
+
       {/* Background */}
       <div className="absolute inset-0 bg-[url('/images/book-bg.jpg')] bg-cover bg-center brightness-75" />
-      <div className="absolute inset-0 bg-black backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
       <section className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-28">
         {/* Heading */}
@@ -73,7 +65,7 @@ export default function BookPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className={`${montserrat.className} text-4xl md:text-5xl font-extrabold text-center text-[#DCCAB2] mb-6`}
+          className={`${montserrat.className} text-4xl md:text-5xl font-extrabold text-center text-[#D4C49A] mb-6`}
         >
           Book a Trip
         </motion.h1>
@@ -82,7 +74,7 @@ export default function BookPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className={`text-center text-lg md:text-xl text-gray-300 max-w-3xl mx-auto ${manrope.className} mb-12`}
+          className={`text-center text-lg md:text-xl text-[#C3B091] max-w-3xl mx-auto ${manrope.className} mb-12`}
         >
           Choose from our handpicked safaris or create your own dream experience — we’ll make it happen.
         </motion.p>
@@ -95,22 +87,22 @@ export default function BookPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: idx * 0.1 }}
-              className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500"
+              className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 bg-[#1A140B]"
             >
               <img
                 src={safari.src}
                 alt={safari.title}
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/90 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <h3 className={`text-xl font-semibold mb-2 text-[#DCCAB2] ${montserrat.className}`}>
+                <h3 className={`text-xl font-semibold mb-2 text-[#D4C49A] ${montserrat.className}`}>
                   {safari.title}
                 </h3>
-                <p className={`text-sm text-gray-300 mb-4 ${manrope.className}`}>{safari.location}</p>
+                <p className={`text-sm text-[#C3B091] mb-4 ${manrope.className}`}>{safari.location}</p>
                 <Link
                   href={`/book/${safari.id}`}
-                  className="inline-block bg-[#DCCAB2] text-black font-semibold px-6 py-2 rounded-full text-sm hover:bg-[#785f3f] transition"
+                  className="inline-block bg-[#D4C49A] text-black font-semibold px-6 py-2 rounded-full text-sm hover:bg-[#BFA878] transition"
                 >
                   Book This Safari
                 </Link>
@@ -126,9 +118,9 @@ export default function BookPage() {
           transition={{ delay: 0.4 }}
           className="flex items-center justify-center my-16"
         >
-          <div className="h-px w-1/4 bg-white/20" />
-          <span className="mx-4 text-gray-400">OR</span>
-          <div className="h-px w-1/4 bg-white/20" />
+          <div className="h-px w-1/4 bg-[#C3B091]/20" />
+          <span className="mx-4 text-[#C3B091]/50">OR</span>
+          <div className="h-px w-1/4 bg-[#C3B091]/20" />
         </motion.div>
 
         {/* Custom Safari Form */}
@@ -136,13 +128,13 @@ export default function BookPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="bg-zinc-900/70 border border-white/10 rounded-3xl shadow-2xl p-10 max-w-3xl mx-auto"
+          className="bg-[#1A140B]/80 border border-[#C3B091]/10 rounded-3xl shadow-2xl p-10 max-w-3xl mx-auto"
         >
-          <h2 className={`text-2xl md:text-3xl font-bold text-[#DCCAB2] mb-6 text-center ${montserrat.className}`}>
+          <h2 className={`text-2xl md:text-3xl font-bold text-[#D4C49A] mb-6 text-center ${montserrat.className}`}>
             Plan a Custom Safari
           </h2>
 
-          <p className={`text-gray-300 text-center mb-8 ${manrope.className}`}>
+          <p className={`text-[#C3B091] text-center mb-8 ${manrope.className}`}>
             Have a specific destination or experience in mind? Tell us about it, and we’ll tailor a safari just for you.
           </p>
 
@@ -151,49 +143,49 @@ export default function BookPage() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             <div className="md:col-span-2">
-              <label className="block text-sm text-gray-300 mb-2">Safari Name or Destination</label>
+              <label className="block text-sm text-[#C3B091] mb-2">Safari Name or Destination</label>
               <input
                 type="text"
                 required
                 name="custom_destination_name"
                 value={formData.custom_destination_name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
+                className="w-full px-4 py-3 rounded-xl bg-[#2E2414]/30 text-white placeholder-[#C3B091]/50 border border-[#C3B091]/20 focus:outline-none focus:border-[#D4C49A]"
                 placeholder="e.g., Serengeti Adventure"
               />
             </div>
 
             <div>
-              <label className="block text-sm text-gray-300 mb-2">Full Name</label>
+              <label className="block text-sm text-[#C3B091] mb-2">Full Name</label>
               <input
                 type="text"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
+                className="w-full px-4 py-3 rounded-xl bg-[#2E2414]/30 text-white placeholder-[#C3B091]/50 border border-[#C3B091]/20 focus:outline-none focus:border-[#D4C49A]"
                 placeholder="Your name"
-                name = "full_name"
+                name="full_name"
                 value={formData.full_name}
                 onChange={handleChange}
               />
             </div>
 
             <div>
-              <label className="block text-sm text-gray-300 mb-2">Email Address</label>
+              <label className="block text-sm text-[#C3B091] mb-2">Email Address</label>
               <input
                 type="email"
                 required
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2]"
+                className="w-full px-4 py-3 rounded-xl bg-[#2E2414]/30 text-white placeholder-[#C3B091]/50 border border-[#C3B091]/20 focus:outline-none focus:border-[#D4C49A]"
                 placeholder="you@example.com"
               />
             </div>
 
             <div className="md:col-span-2">
-              <label className="block text-sm text-gray-300 mb-2">Tell Us About Your Dream Safari</label>
+              <label className="block text-sm text-[#C3B091] mb-2">Tell Us About Your Dream Safari</label>
               <textarea
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#DCCAB2] resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-[#2E2414]/30 text-white placeholder-[#C3B091]/50 border border-[#C3B091]/20 focus:outline-none focus:border-[#D4C49A] resize-none"
                 placeholder="Describe your ideal adventure..."
                 name="special_requests"
                 value={formData.special_requests}
@@ -204,7 +196,7 @@ export default function BookPage() {
             <div className="md:col-span-2 flex justify-center">
               <button
                 type="submit"
-                className="bg-[#DCCAB2] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#73552d] transition-all"
+                className="bg-[#D4C49A] text-black font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-[#BFA878] transition-all"
               >
                 Submit Request
               </button>

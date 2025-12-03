@@ -51,4 +51,37 @@ export type BlogPost = {
     image: string;
     slug: string;
     content: string;
+    authorTitle: string;
+}
+
+export type TeamMember = {
+    slug: string;
+    name: string;
+    role: string;
+    bio: string;
+    img: string;
+}
+
+export interface Experience {
+    id: string;
+    title: string;
+    location: string;
+    duration: string;
+    groupSize: string;
+    price: string;
+    rating: number;
+    src: string;
+    featured?: boolean;
+}
+
+export interface GalleryImage {
+    id: number;
+    category: string;
+    src: string;
+    alt: string;
+}
+
+export interface Category {
+    value: string;
+    label: string;
 }

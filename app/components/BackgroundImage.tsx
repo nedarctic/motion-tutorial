@@ -24,7 +24,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
   }, []);
 
   return (
-    <section ref={ref} className="relative h-screen w-full overflow-hidden">
+    <section ref={ref} className="relative h-screen w-full overflow-hidden bg-[#20190E]">
       {/* Background with zoom + parallax */}
       <motion.div
         style={{ y: yBg, scale }}
@@ -43,8 +43,8 @@ export default function BackgroundImage({ image }: { image: Image }) {
 
       {/* Cinematic multi-gradient overlay */}
       <motion.div style={{ y: yOverlay }} className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/10 to-black/90" />
-        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#20190E]/80 via-[#2E2414]/20 to-[#20190E]/90" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#1A140B]/80 via-transparent to-transparent" />
       </motion.div>
 
       {/* Content */}
@@ -53,7 +53,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
           {/* Monumental backdrop */}
           <div className="absolute top-32 md:top-48 left-10 pointer-events-none select-none overflow-hidden">
             <h2
-              className={`${manrope.className} font-black tracking-tighter text-white/5 leading-[0.78]`}
+              className={`${manrope.className} font-black tracking-tighter text-[#D4C49A]/5 leading-[0.78]`}
               style={{
                 fontSize: "clamp(18rem, 42vw, 60rem)",
                 letterSpacing: "-0.07em",
@@ -62,7 +62,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
               CURATED
             </h2>
             <h2
-              className={`${manrope.className} font-black tracking-tighter text-white/5 leading-[0.78] -mt-12 md:-mt-24`}
+              className={`${manrope.className} font-black tracking-tighter text-[#D4C49A]/5 leading-[0.78] -mt-12 md:-mt-24`}
               style={{
                 fontSize: "clamp(11rem, 26vw, 38rem)",
                 marginLeft: "clamp(6rem, 15vw, 28rem)",
@@ -81,8 +81,7 @@ export default function BackgroundImage({ image }: { image: Image }) {
                   animate={{ clipPath: "inset(0% 0 0 0)" }}
                   exit={{ clipPath: "inset(0 0 100% 0)" }}
                   transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`${playfair.className} absolute sm:bottom-80 bottom-100 text-4xl pr-4 lg:pr-10 sm:text-7xl text-[#E8D9C2]`}
-                  
+                  className={`${playfair.className} absolute sm:bottom-80 bottom-100 text-4xl pr-10 lg:pr-10 sm:text-7xl text-[#D4C49A]`}
                 >
                   {image.text}
                 </motion.h1>
@@ -93,7 +92,9 @@ export default function BackgroundImage({ image }: { image: Image }) {
                   transition={{ delay: 1, duration: 1.4, ease: "easeOut" }}
                   className="mt-8 absolute sm:bottom-45 bottom-80 md:mt-12 space-y-5"
                 >
-                  <p className={`${pacifico.className} text-3xl md:text-5xl lg:text-6xl text-[#E8D9C2]/85 italic`}>
+                  <p
+                    className={`${pacifico.className} text-3xl md:text-5xl lg:text-6xl text-[#D4C49A]/85 italic`}
+                  >
                     by Ray
                   </p>
                 </motion.div>

@@ -5,7 +5,6 @@ import { montserrat, satisfy, manrope } from "../fonts";
 import Image from "next/image";
 import { travelVideos } from "../data/lib";
 
-
 export default function TravelInspirationSection() {
   return (
     <section
@@ -34,14 +33,13 @@ export default function TravelInspirationSection() {
           className="space-y-6"
         >
           <h1
-            className={`${manrope.className} text-4xl md:text-6xl font-extrabold text-[#DCCAB2] leading-tight`}
+            className={`${manrope.className} text-4xl md:text-6xl font-extrabold text-[#D4C49A] leading-tight`}
           >
             DISCOVER THE WORLD IN A NEW WAY
           </h1>
 
-          <p className={`${manrope.className} text-[#DCCAB2] max-w-md leading-relaxed`}>
-            Watch stories from across Kenya, from misty mountains to golden savannas.
-            Every journey awakens a sense of wonder, connection, and belonging.
+          <p className={`${manrope.className} text-[#C3B091] max-w-md leading-relaxed`}>
+            Watch stories from across Kenya, from misty mountains to golden savannas. Every journey awakens a sense of wonder, connection, and belonging.
           </p>
 
           <motion.a
@@ -49,10 +47,10 @@ export default function TravelInspirationSection() {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 text-[#DCCAB2] border border-white/40 px-5 py-3 rounded-full hover:bg-white/10 transition-all"
+            className="inline-flex items-center gap-2 text-[#D4C49A] border border-[#C3B091]/50 px-5 py-3 rounded-full hover:bg-[#C3B091]/10 transition-all"
           >
             <svg
-              className="w-5 h-5 fill-white"
+              className="w-5 h-5 fill-[#D4C49A]"
               viewBox="0 0 24 24"
             >
               <path d="M8 5v14l11-7z" />
@@ -75,7 +73,7 @@ export default function TravelInspirationSection() {
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
-              className="relative group rounded-xl overflow-hidden shadow-lg"
+              className="relative group rounded-xl overflow-hidden shadow-lg hover:shadow-[#A48B56]/50 transition-shadow"
             >
               <Image
                 src={video.thumbnail}
@@ -87,7 +85,7 @@ export default function TravelInspirationSection() {
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <svg
-                  className="w-10 h-10 text-white opacity-90 group-hover:text-cyan-300 transition-colors"
+                  className="w-10 h-10 text-[#D4C49A] opacity-90 group-hover:text-[#BFA878] transition-colors"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >

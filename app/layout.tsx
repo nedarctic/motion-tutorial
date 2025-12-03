@@ -32,9 +32,14 @@ export const metadata: Metadata = {
   creator: "Curated by Ray",
   publisher: "Curated by Ray",
   icons: {
-    icon: "/Pale Beige Logo.svg",
-    shortcut: "/Pale Beige Logo.svg",
+    icon: [
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Curated by Ray – Thoughtfully Curated Travel Experiences",
     description:

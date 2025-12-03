@@ -8,7 +8,7 @@ export default function WhyChooseUsSection() {
   return (
     <section
       id="why-us"
-      className={`${manrope.className} lg:min-h-[600px] bg-linear-to-t from-black/70 via-[#63581F] to-black/70 relative min-h-screen flex flex-col items-center py-28 px-8 md:px-20`}
+      className={`${manrope.className} lg:min-h-[600px] relative min-h-screen flex flex-col items-center py-28 px-8 md:px-20 bg-[#20190E]`}
     >
       {/* Distant atmospheric backdrop */}
       <div className="absolute inset-0 -z-10">
@@ -16,7 +16,7 @@ export default function WhyChooseUsSection() {
           className="w-full h-full bg-cover bg-center filter blur-2xl brightness-50 opacity-50"
           style={{ backgroundImage: `url('/images/kenya-backdrop.jpg')` }}
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-[#63581F] to-black/70" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-[#2E2414]/70 to-black/70" />
       </div>
 
       {/* Headline */}
@@ -25,7 +25,7 @@ export default function WhyChooseUsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className={`${satisfy.className} text-4xl md:text-5xl text-center mb-8 text-[#DCCAB2]`}
+        className={`${satisfy.className} text-4xl md:text-5xl text-center mb-8 text-[#D4C49A]`}
       >
         Why Curated by Ray
       </motion.h2>
@@ -36,9 +36,9 @@ export default function WhyChooseUsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className={`${montserrat.className} text-base md:text-lg text-center text-[#DCCAB2] max-w-3xl mb-20 leading-relaxed`}
+        className={`${montserrat.className} text-base md:text-lg text-center text-[#C3B091] max-w-3xl mb-20 leading-relaxed`}
       >
-        We don’t do mass tourism. We craft deeply personal journeys that are rooted in Kenya’s rhythm, 
+        We don’t do mass tourism. We craft deeply personal journeys rooted in Kenya’s rhythm, 
         refined by taste, and guided by people who truly know this land. Every destination we 
         recommend has been walked, tasted, and felt. Every itinerary tells a story.
       </motion.p>
@@ -54,11 +54,11 @@ export default function WhyChooseUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="flex flex-col items-center text-center space-y-4"
+              className="flex flex-col items-center text-center space-y-4 bg-[#1A140B] rounded-2xl p-6 shadow-lg hover:shadow-[#A48B56]/40 transition-all"
             >
-              <Icon className="w-10 h-10 text-[#DCCAB2]" />
-              <h3 className={`${montserrat.className} text-lg font-semibold text-[#DCCAB2]`}>{c.title}</h3>
-              <p className="text-[#DCCAB2] text-sm leading-relaxed max-w-xs">{c.text}</p>
+              <Icon className="w-10 h-10 text-[#D4C49A]" />
+              <h3 className={`${montserrat.className} text-lg font-semibold text-[#D4C49A]`}>{c.title}</h3>
+              <p className="text-[#C3B091] text-sm leading-relaxed max-w-xs">{c.text}</p>
             </motion.div>
           );
         })}
@@ -70,7 +70,7 @@ export default function WhyChooseUsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className={`${montserrat.className} text-center text-[#DCCAB2] mt-20 text-base md:text-lg max-w-2xl`}
+        className={`${montserrat.className} text-center text-[#C3B091] mt-20 text-base md:text-lg max-w-2xl`}
       >
         Let us show you Kenya the way it was meant to be experienced. Intimate, alive, and unforgettable.
       </motion.p>
